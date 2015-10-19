@@ -12,7 +12,7 @@
 
     - Parameter parsers: The sequence of parsers to sequentially run.
 */
-public func sequence<Token, Result, Sequence: SequenceType where Sequence.Generator.Element == Parser<Token, Result>>
+public func sequenced<Token, Result, Sequence: SequenceType where Sequence.Generator.Element == Parser<Token, Result>>
     (parsers: Sequence) -> Parser<Token, [Result]> {
     return Parser { state in
         var results = [Result]()
@@ -29,8 +29,8 @@ public func sequence<Token, Result, Sequence: SequenceType where Sequence.Genera
 
     - Parameter parsers: The variadic list of parsers to sequentially run.
 */
-public func sequence<Token, Result>(parsers: (Parser<Token, Result>)...) -> Parser<Token, [Result]> {
-    return sequence(parsers)
+public func sequenced<Token, Result>(parsers: (Parser<Token, Result>)...) -> Parser<Token, [Result]> {
+    return sequenced(parsers)
 }
 
 /**

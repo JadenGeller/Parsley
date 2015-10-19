@@ -70,7 +70,7 @@ public func many1Delimited<Token, Ignore, Result>(parser: Parser<Token, Result>,
 - Parameter parser: The parser that is run over and over to determine the result.
 */
 public func until<Token, Discard, Result>(condition: Parser<Token, Discard>, parse parser: Parser<Token, Result>) -> Parser<Token, [Result]> {
-    return many(precondition(not(condition), thenParse: parser))
+    return many(unless(condition, parse: parser))
 }
 
 /**

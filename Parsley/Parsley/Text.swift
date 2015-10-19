@@ -66,7 +66,7 @@ public func anyCharacter(characters: Character...) -> Parser<Character, Characte
     - Parameter text: The string of text to match against.
 */
 public func string(text: String) -> Parser<Character, [Character]> {
-    return sequence(text.characters.map(token)).withError("string(\(text)")
+    return sequenced(text.characters.map(token)).withError("string(\(text)")
 }
 
 /**
@@ -109,7 +109,7 @@ parser succeeds, and the resulting parser returns an array of the results.
 - Parameter parsers: The variadic list of parsers to sequentially run.
 */
 public func appending<Token>(parsers: (Parser<Token, String>)...) -> Parser<Token, String> {
-    return sequence(parsers).map { $0.reduce("", combine: +) }
+    return sequenced(parsers).map { $0.reduce("", combine: +) }
 }
 
 

@@ -68,3 +68,23 @@ public func not<Token, Result>(parser: Parser<Token, Result>) -> Parser<Token, (
     }
 }
 
+/**
+    Constructs a `Parser` that will run `parser` only if `condition` fails. Note that `condition` will not consume any input.
+
+    - Parameter condition: The condition that we check to be false before parsing.
+    - Parameter parser: The parser to run.
+*/
+public func unless<Token, Ignore, Result>(condition: Parser<Token, Ignore>, parse parser: Parser<Token, Result>) -> Parser<Token, Result> {
+    return precondition(not(condition), thenParse: parser)
+}
+
+/**
+    Constructs a `Parser` that will parse a single token only if `condition` fails. Note that `condition` will not consume any input.
+
+    - Parameter condition: The condition that we check to be false before parsing.
+*/
+public func unless<Token, Ignore>(condition: Parser<Token, Ignore>) -> Parser<Token, Token> {
+    return unless(condition, parse: any())
+}
+
+
