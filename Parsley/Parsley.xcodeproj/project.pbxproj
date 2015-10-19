@@ -27,6 +27,9 @@
 		4D0E2C5C1BCF692300826435 /* MatchingTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D0E2C5B1BCF692300826435 /* MatchingTests.swift */; settings = {ASSET_TAGS = (); }; };
 		4D0E2C601BCF7B6F00826435 /* Utilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D0E2C5F1BCF7B6F00826435 /* Utilities.swift */; settings = {ASSET_TAGS = (); }; };
 		4D0E2C6A1BCF843A00826435 /* SchemeTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D0E2C691BCF843A00826435 /* SchemeTest.swift */; settings = {ASSET_TAGS = (); }; };
+		4DEFFFC81BD509960041DEC2 /* Coalescing.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DEFFFC71BD509960041DEC2 /* Coalescing.swift */; settings = {ASSET_TAGS = (); }; };
+		4DEFFFCC1BD50A770041DEC2 /* Optional.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DEFFFCB1BD50A770041DEC2 /* Optional.swift */; settings = {ASSET_TAGS = (); }; };
+		4DEFFFD11BD540A80041DEC2 /* Debug.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DEFFFD01BD540A80041DEC2 /* Debug.swift */; settings = {ASSET_TAGS = (); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -90,6 +93,9 @@
 		4D0E2C5B1BCF692300826435 /* MatchingTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MatchingTests.swift; sourceTree = "<group>"; };
 		4D0E2C5F1BCF7B6F00826435 /* Utilities.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Utilities.swift; sourceTree = "<group>"; };
 		4D0E2C691BCF843A00826435 /* SchemeTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SchemeTest.swift; sourceTree = "<group>"; };
+		4DEFFFC71BD509960041DEC2 /* Coalescing.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Coalescing.swift; sourceTree = "<group>"; };
+		4DEFFFCB1BD50A770041DEC2 /* Optional.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Optional.swift; sourceTree = "<group>"; };
+		4DEFFFD01BD540A80041DEC2 /* Debug.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Debug.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -174,9 +180,11 @@
 		4D0E2C411BCF363400826435 /* Combinators */ = {
 			isa = PBXGroup;
 			children = (
+				4D0E2C441BCF36B900826435 /* Backtracking.swift */,
 				4D0E2C331BCF201B00826435 /* Sequencing.swift */,
 				4D0E2C461BCF371900826435 /* Repeating.swift */,
-				4D0E2C441BCF36B900826435 /* Backtracking.swift */,
+				4DEFFFC71BD509960041DEC2 /* Coalescing.swift */,
+				4DEFFFCB1BD50A770041DEC2 /* Optional.swift */,
 				4D0E2C421BCF365300826435 /* Recursive.swift */,
 				4D0E2C5F1BCF7B6F00826435 /* Utilities.swift */,
 			);
@@ -198,6 +206,7 @@
 			children = (
 				4D0E2C391BCF212A00826435 /* Base.swift */,
 				4D0E2C3F1BCF253C00826435 /* Text.swift */,
+				4DEFFFD01BD540A80041DEC2 /* Debug.swift */,
 				4D0E2C411BCF363400826435 /* Combinators */,
 			);
 			name = Parsers;
@@ -365,14 +374,17 @@
 				4D0E2C3A1BCF212A00826435 /* Base.swift in Sources */,
 				4D0E2C451BCF36B900826435 /* Backtracking.swift in Sources */,
 				4D0E2C271BCCF99F00826435 /* Tokenizer.swift in Sources */,
+				4DEFFFC81BD509960041DEC2 /* Coalescing.swift in Sources */,
 				4D0E2C551BCF59BC00826435 /* Matchable.swift in Sources */,
 				4D0E2C581BCF5EA000826435 /* ParserType.swift in Sources */,
 				4D0E2C341BCF201B00826435 /* Sequencing.swift in Sources */,
+				4DEFFFCC1BD50A770041DEC2 /* Optional.swift in Sources */,
 				4D0E2C431BCF365300826435 /* Recursive.swift in Sources */,
 				4D0E2C161BCCD3A900826435 /* ParseState.swift in Sources */,
 				4D0E2C381BCF202700826435 /* Parser.swift in Sources */,
 				4D0E2C601BCF7B6F00826435 /* Utilities.swift in Sources */,
 				4D0E2C471BCF371900826435 /* Repeating.swift in Sources */,
+				4DEFFFD11BD540A80041DEC2 /* Debug.swift in Sources */,
 				4D0E2C5A1BCF652C00826435 /* Extensions.swift in Sources */,
 				4D0E2C291BCD021600826435 /* InputStream.swift in Sources */,
 				4D0E2C401BCF253C00826435 /* Text.swift in Sources */,

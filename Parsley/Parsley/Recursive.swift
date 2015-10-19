@@ -25,5 +25,5 @@ public func recurive<Token, Result>(recurse: Parser<Token, Result> -> Parser<Tok
     - Parameter recurse: A function that recieves itself as an argument.
 */
 private func fixedPoint<T, V>(recurse: (T throws -> V) -> (T throws -> V)) -> T throws -> V {
-    return recurse(fixedPoint(recurse))
+    return { try recurse(fixedPoint(recurse))($0) }
 }

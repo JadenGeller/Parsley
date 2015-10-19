@@ -52,7 +52,11 @@ public func end<Token>() -> Parser<Token, ()> {
     - Parameter condition: The condition that the token must satisfy.
 */
 public func satisfy<Token>(condition: Token -> Bool) -> Parser<Token, Token> {
-    return any().requiring(condition).withError("satisfy(\(condition))")
+    return satisfy("", condition)
+}
+
+public func satisfy<Token>(description: String, _ condition: Token -> Bool) -> Parser<Token, Token> {
+    return any().requiring(description, condition).mapError(wrapped("satisfy"))
 }
 
 /**
@@ -71,7 +75,7 @@ public func token<Token: Equatable>(token: Token) -> Parser<Token, Token> {
 
     - Parameter interval: The interval that the input is tested against.
 */
-public func between<I: IntervalType>(interval: I) -> Parser<I.Bound, I.Bound> {
+public func within<I: IntervalType>(interval: I) -> Parser<I.Bound, I.Bound> {
     return satisfy(interval.contains).withError("within(\(interval))")
 }
 
@@ -85,12 +89,12 @@ public func within<S: SequenceType where S.Generator.Element: Equatable>(sequenc
     return satisfy(sequence.contains).withError("within(\(sequence)")
 }
 
-/**
-    Constructs a `Parser` that consumes a single token and returns the token
-    if it is within the variadic list `tokens`.
-
-    - Parameter tokens: The variadic list that the input is tested against.
-*/
-public func within<Token: Equatable>(tokens: Token...) -> Parser<Token, Token> {
-    return within(tokens)
-}
+///**
+//    Constructs a `Parser` that consumes a single token and returns the token
+//    if it is within the variadic list `tokens`.
+//
+//    - Parameter tokens: The variadic list that the input is tested against.
+//*/
+//public func anyOf<Token: Equatable>(tokens: Token...) -> Parser<Token, Token> {
+//    return within(tokens)
+//}

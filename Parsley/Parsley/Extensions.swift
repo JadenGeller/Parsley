@@ -8,7 +8,7 @@
 
 extension String: MatchInitializable, MatchVerifiable {
     static var matcher: Parser<Character, String> {
-        return many1(letter()).map(String.init)
+        return many1(letter()).stringify()
     }
     
     var matcher: Parser<Character, String> {

@@ -41,81 +41,30 @@ public func lookahead<Token, Result>(parser: Parser<Token, Result>) -> Parser<To
 }
 
 /**
-    Constructs a `Parser` that will parse with `rightParser` whenever `leftParser` fails.
+    Constructs a `Parser` that runs `condition` without consuming any input, running and returing the
+    result of `parser` on success.
 
-    - Parameter leftParser: The parser to run first.
-    - Parameter rightParser: The parser to run whenever the first parser fails.
+    - Parameter condition: The parser that must succeed to continue.
+    - Parameter parser: The parser to run to determine the result.
 */
-public func either<Token, LeftResult, RightResult>(leftParser: Parser<Token, LeftResult>, _ rightParser: Parser<Token, RightResult>) -> Parser<Token, Either<LeftResult, RightResult>> {
+public func precondition<Token, Discard, Result>(condition: Parser<Token, Discard>, thenParse parser: Parser<Token, Result>) -> Parser<Token, Result> {
+    return dropLeft(lookahead(condition), parser)
+}
+
+/**
+    Constructs a `Parser` that will run `parser`; if `parser` succeeds, this parser will throw an error.
+    If `parser` fails, this parser will succeed, consuming the input and returning nothing.
+
+    - Parameter parser: The parser to run.
+*/
+public func not<Token, Result>(parser: Parser<Token, Result>) -> Parser<Token, ()> {
     return Parser { state in
         do {
-            return .Left(try attempt(leftParser).parse(state))
-        } catch let leftError as ParseError {
-            do {
-                return .Right(try rightParser.parse(state))
-            } catch let rightError as ParseError {
-                throw ParseError("either(\(leftError), \(rightError))")
-            }
+            try parser.parse(state)
+        } catch _ as ParseError {
+            return ()
         }
+        throw ParseError("not(\(parser))")
     }
-}
-
-/**
-    Constructs a `Parser` that will parse with the first element of `parsers` that succeeds.
-
-    - Parameter parsers: The sequence of parsers to attempt.
-*/
-public func anyOf<Token, Result, Sequence: SequenceType where Sequence.Generator.Element == Parser<Token, Result>>
-    (parsers: Sequence) -> Parser<Token, Result> {
-        return Parser { state in
-            var errors = [ParseError]()
-            for parser in parsers {
-                do {
-                    return try attempt(parser).parse(state)
-                } catch let error as ParseError {
-                    errors.append(error)
-                }
-            }
-            let message = errors.reduce("") { result, next in result + ", " + next.message }
-            throw ParseError("anyOf(\(message))")
-        }
-}
-
-/**
-    Constructs a `Parser` that will parse with the first element of `parsers` that succeeds.
-
-    - Parameter parsers: A variadic list of parsers to attempt.
-*/
-public func anyOf<Token, Result>(parsers: (Parser<Token, Result>)...) -> Parser<Token, Result> {
-    return anyOf(parsers)
-}
-
-/**
-    Constructs a `Parser` that will attempt to parse with `parser`, but will backtrack and return `nil` on failure
-
-    - Parameter parser: The parser to run.
-*/
-public func optional<Token, Result>(parser: Parser<Token, Result>) -> Parser<Token, Result?> {
-    return anyOf(parser.map(Optional.Some), pure(Optional.None))
-}
-
-/**
-    Constructs a `Parser` that will attempt to parse with `parser`, but will backtrack and return `otherwise` on failure
-
-    - Parameter parser: The parser to run.
-    - Parameter attempt: The default value to return on failure.
-*/
-public func optional<Token, Result>(parser: Parser<Token, Result>, otherwise: Result) -> Parser<Token, Result> {
-    return parser.otherwise(otherwise)
-}
-
-// MARK: Helpers
-
-/**
-    A datatype that represents can manifest itself as one of two types.
-*/
-public enum Either<A, B> {
-    case Left(A)
-    case Right(B)
 }
 

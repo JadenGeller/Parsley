@@ -57,6 +57,6 @@ public class TextStream: StreamType {
     }
     
     public func combinator<Result>(parser: Parser<Character, Result>) -> Parser<Character, Result> {
-        return rightResult(many(whitespace()), parser)
+        return dropLeft(many(whitespace()), parser)
     }
 }

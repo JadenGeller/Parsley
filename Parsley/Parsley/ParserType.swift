@@ -8,19 +8,21 @@
 
 import Spork
 
-protocol ParserType {
+public protocol ParserType {
     typealias Token
     typealias Result
     
     func parse(state: ParseState<Token>) throws -> Result
+    func flatMap<MappedResult>(transform: Result throws -> Parser<Token, MappedResult>) -> Parser<Token, MappedResult>
 }
 
 extension ParserType {
-    func parse<Sequence: SequenceType where Sequence.Generator: ForkableGeneratorType, Sequence.Generator.Element == Token>(sequence: Sequence) throws -> Result {
+    public func parse<Sequence: SequenceType where Sequence.Generator: ForkableGeneratorType, Sequence.Generator.Element == Token>(sequence: Sequence) throws -> Result {
         return try parse(ParseState(sequence: sequence))
     }
     
-    func parse<Sequence: SequenceType where Sequence.Generator.Element == Token>(sequence: Sequence) throws -> Result {
+    public func parse<Sequence: SequenceType where Sequence.Generator.Element == Token>(sequence: Sequence) throws -> Result {
         return try parse(ParseState(sequence: sequence))
     }
 }
+

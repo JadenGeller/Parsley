@@ -18,14 +18,14 @@ public struct ParseError: ErrorType, CustomStringConvertible {
     }
 }
 
-extension Parser {
+extension ParserType {
     
     /**
         Constructs a `Parser` that, on error, catches the error, maps transform onto its message, and rethrows the error.
     
         - Parameter transfomr: The transform to map onto the caught message.
     */
-    public func mapError(transform: String -> String) -> Parser {
+    public func mapError(transform: String -> String) -> Parser<Token, Result> {
         return Parser { state in
             do {
                 return try self.parse(state)
@@ -41,7 +41,7 @@ extension Parser {
 
         - Parameter message: The message to include in the `ParseError`.
     */
-    public func withError(message: String) -> Parser {
+    public func withError(message: String) -> Parser<Token, Result> {
         return mapError { _ in message }
     }
     
@@ -50,23 +50,21 @@ extension Parser {
     
         - Parameter recovery: Function that transforms the error into a valid result.
     */
-    public func recover(recovery: ParseError -> Result) -> Parser {
+    public func recover(recovery: ParseError -> Result) -> Parser<Token, Result> {
         return Parser { state in
             do {
                 return try self.parse(state)
             }
             catch let error as ParseError {
-                return recovery(error)
+                return try recovery(error)
             }
         }
     }
     
-    /**
-        Constructs a `Parser` that catches an error and returns `recovery` instead.
-    
-        - Parameter recovery: Result to be returned in case of an error.
-    */
-    public func otherwise(recovery: Result) -> Parser {
-        return recover { _ in recovery }
-    }
+}
+
+// MARK: Helpers
+
+func wrapped(outer: String) -> String -> String {
+    return { inner in outer + "(" + inner + ")" }
 }

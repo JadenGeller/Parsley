@@ -29,7 +29,7 @@ public func sequence<Token, Result, Sequence: SequenceType where Sequence.Genera
 
     - Parameter parsers: The variadic list of parsers to sequentially run.
 */
-public func sequence<Token, Result>(parsers: (Parser<Token, Result>)...) throws -> Parser<Token, [Result]> {
+public func sequence<Token, Result>(parsers: (Parser<Token, Result>)...) -> Parser<Token, [Result]> {
     return sequence(parsers)
 }
 

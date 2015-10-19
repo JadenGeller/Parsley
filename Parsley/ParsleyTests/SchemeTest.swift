@@ -13,24 +13,58 @@ import Parsley
 
 enum SchemeToken {
     case BareWord(String)
-    case IntegerLiteral(Int)
-    case FloatingPointLiteral(Float)
+    case IntegerLiteral(String)
+    case FloatingPointLiteral(String)
     case StringLiteral(String)
     case Symbol(Character)
 }
 
 class SchemeTest: XCTestCase {
-
+    
     func testScheme() {
-        let whitespace = many1(within(Character(" "), "\n")).discard()
-        let bareWord = sequence(letter(), many1(anyOf(letter(), digit()))).map { String($0) }
-        let integerLiteral = sequence(optional(within("+", "-")), many1(digit())).map { sign, digits in String(sign) ?? "" + String(digits) }
-        let floatingPointLiteral = sequence(integerLiteral, character("."), many(digit())).map { integer, _, float in String(integer) + "." + String(float) }
-        let stringLiteral = sequence(token("\""), until(token("\"")), token("\"")).map { _, s, _ in s }
-        let symbol = within("()+-*/".characters)
+        let whitespace = many1(anyCharacter(" ", "\n")).withError("whitespace").stringify()
+        let bareWord = appending(
+            letter().stringify(),
+            many1(coalesce(
+                letter(),
+                digit()
+            )).stringify()
+        ).withError("bare word")
+        let integerLiteral = appending(
+            within("+-").stringify().otherwise(""),
+            many1(digit()).stringify()
+        ).withError("integer literal")
+        let floatingPointLiteral = appending(
+            integerLiteral,
+            character(".").stringify(),
+            many(digit()).stringify()
+        ).withError("floating point literal")
+        let stringLiteral = between(character("\""), character("\""), parse: until(character("\""))).stringify().withError("string literal")
+        let symbol = within("()+-*/").withError("symbol")
+        let comment = recurive { (parser: Parser<Character, String>) in
+            return between(string("/*"), string("*/"), parse: appending(
+                until(coalesce(string("/*"), string("*/"))).stringify(),
+                appending(
+                    parser,
+                    until(coalesce(string("/*"), string("*/"))).stringify()
+                ).otherwise("")
+            ))
+        }.withError("comment")
         
-        let tokenizer = tokenize([bareWord.map(SchemeToken.BareWord).map(Optional.Some), integerLiteral.map{ (x: String) in 0 }.map(SchemeToken.IntegerLiteral), floatingPointLiteral.map { 100 }.map(SchemeToken.FloatingPointLiteral), stringLiteral.map(SchemeToken.StringLiteral), symbol.map(SchemeToken.Symbol)], ignoring: [whitespace.discard()])
+        let tokens = terminating(manyDelimited(coalesce(
+            bareWord.map(SchemeToken.BareWord),
+            stringLiteral.map(SchemeToken.StringLiteral),
+            floatingPointLiteral.map(SchemeToken.FloatingPointLiteral),
+            integerLiteral.map(SchemeToken.IntegerLiteral),
+            symbol.map(SchemeToken.Symbol)
+        ), delimiter: many(coalesce(whitespace, comment))))
+        
+        do {
+            let result = try tokens.parse("((hello (+5 * -3  /* this is a /* nested */ comment */ ) 5   \"world\" -43.56  )4  whoa)")
+            XCTAssertEqual(15, result.count)
+        } catch let error {
+            XCTFail(String(error))
+        }
     }
-
 }
 

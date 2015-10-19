@@ -17,21 +17,6 @@ public struct Parser<Token, Result>: ParserType {
     public func parse(state: ParseState<Token>) throws -> Result {
         return try implementation(state)
     }
-}
-
-extension Parser {
-    
-    /**
-    Returns a `Parser` that, on successful parse, returns the result of mapping `transform`
-    over its previous result value
-    
-    - Parameter transform: The transform to map over the result.
-    */
-    public func map<MappedResult>(transform: Result throws -> MappedResult) -> Parser<Token, MappedResult> {
-        return flatMap { result in
-            try pure(transform(result))
-        }
-    }
     
     /**
     Returns a `Parser` that, on successful parse, continues parsing with the parser resulting
@@ -46,29 +31,43 @@ extension Parser {
             return try transform(self.parse(state)).parse(state)
         }
     }
+}
+
+extension ParserType {
+    /**
+        Returns a `Parser` that, on successful parse, returns the result of mapping `transform`
+        over its previous result value
+    
+        - Parameter transform: The transform to map over the result.
+    */
+    public func map<MappedResult>(transform: Result throws -> MappedResult) -> Parser<Token, MappedResult> {
+        return flatMap { result in
+            try pure(transform(result))
+        }
+    }
     
     /**
-    Returns a `Parser` that, on successful parse, discards its previous result and returns `value` instead.
+        Returns a `Parser` that, on successful parse, discards its previous result and returns `value` instead.
     
-    - Parameter value: The value to return on successful parse.
+        - Parameter value: The value to return on successful parse.
     */
     public func replace<NewResult>(value: NewResult) -> Parser<Token, NewResult> {
         return map { _ in value }
     }
     
     /**
-    Returns a `Parser` that, on successful parse, discards its result.
+        Returns a `Parser` that, on successful parse, discards its result.
     */
     public func discard() -> Parser<Token, ()> {
         return replace(())
     }
     
     /**
-    Returns a `Parser` that calls the callback `glimpse` before returning its result.
+        Returns a `Parser` that calls the callback `glimpse` before returning its result.
     
-    - Parameter glimpse: Callback that recieves the parser's result as input.
+        - Parameter glimpse: Callback that recieves the parser's result as input.
     */
-    public func peek(glimpse: Result throws -> ()) -> Parser {
+    public func peek(glimpse: Result throws -> ()) -> Parser<Token, Result> {
         return map { result in
             try glimpse(result)
             return result
@@ -76,14 +75,18 @@ extension Parser {
     }
     
     /**
-    Returns a `Parser` that verifies that its result passes the condition before returning
-    its result. If the result fails the condition, throws an error.
+        Returns a `Parser` that verifies that its result passes the condition before returning
+        its result. If the result fails the condition, throws an error.
     
-    - Parameter condition: The condition used to test the result.
+        - Parameter condition: The condition used to test the result.
     */
-    public func requiring(condition: Result -> Bool) -> Parser {
+    public func requiring(condition: Result -> Bool) -> Parser<Token, Result> {
+        return requiring("", condition)
+    }
+    
+    public func requiring(description: String, _ condition: Result -> Bool) -> Parser<Token, Result> {
         return peek { result in
-            if !condition(result) { throw ParseError("assert(\(condition))") }
+            if !condition(result) { throw ParseError("requiring(\(description))") }
         }
     }
 }

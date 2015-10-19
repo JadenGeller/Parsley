@@ -14,11 +14,32 @@ extension ParserType where Token == Character {
         - Parameter string: `String` to parse.
         - Returns: Result of parsing.
     */
-    func parse(string: String) throws -> Result {
+    public func parse(string: String) throws -> Result {
         return try parse(string.characters.generate())
     }
 }
 
+extension ParserType where Result == [Character] {
+    
+    /**
+        Converts a parser that results in an array of characters into a parser that
+        results in a String.
+    */
+    public func stringify() -> Parser<Token, String> {
+        return map(String.init)
+    }
+}
+
+extension ParserType where Result == Character {
+    
+    /**
+        Converts a parser that results in single characters into a parser that
+        results in a String.
+    */
+    public func stringify() -> Parser<Token, String> {
+        return map { String($0) }
+    }
+}
 
 /**
     Construct a `Parser` that matches a given character.
@@ -30,12 +51,22 @@ public func character(character: Character) -> Parser<Character, Character> {
 }
 
 /**
+Constructs a `Parser` that consumes a single token and returns the token
+if it is within the variadic list `tokens`.
+
+- Parameter tokens: The variadic list that the input is tested against.
+*/
+public func anyCharacter(characters: Character...) -> Parser<Character, Character> {
+    return within(characters)
+}
+
+/**
     Constructs a `Parser` that matches a given string of text.
 
     - Parameter text: The string of text to match against.
 */
-public func string(text: String) -> Parser<Character, String> {
-    return sequence(text.characters.map(token)).map(String.init).withError("string(\(text)")
+public func string(text: String) -> Parser<Character, [Character]> {
+    return sequence(text.characters.map(token)).withError("string(\(text)")
 }
 
 /**
@@ -43,7 +74,7 @@ public func string(text: String) -> Parser<Character, String> {
     from the English alphabet.
 */
 public func letter() -> Parser<Character, Character> {
-    return between("A"..."z").withError("letter")
+    return within("A"..."z").withError("letter")
 }
 
 /**
@@ -51,7 +82,7 @@ public func letter() -> Parser<Character, Character> {
     Arabic numeral.
 */
 public func digit() -> Parser<Character, Character> {
-    return between("0"..."9").withError("digit")
+    return within("0"..."9").withError("digit")
 }
 
 /**
@@ -60,4 +91,25 @@ public func digit() -> Parser<Character, Character> {
 public func whitespace() -> Parser<Character, Character> {
     return token(" ").withError("whitespace")
 }
+
+/**
+    Constructs a `Parser` that consumes a single token and returns the token
+    if it is within the string `string`.
+
+    - Parameter sequence: The sequence that the input is tested against.
+*/
+public func within(string: String) -> Parser<Character, Character> {
+    return within(string.characters)
+}
+
+/**
+Constructs a `Parser` that will parse will each element of `parsers`, sequentially. Parsing only succeeds if every
+parser succeeds, and the resulting parser returns an array of the results.
+
+- Parameter parsers: The variadic list of parsers to sequentially run.
+*/
+public func appending<Token>(parsers: (Parser<Token, String>)...) -> Parser<Token, String> {
+    return sequence(parsers).map { $0.reduce("", combine: +) }
+}
+
 
