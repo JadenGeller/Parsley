@@ -31,12 +31,14 @@ enum SchemeToken: Equatable, CustomStringConvertible {
 
 enum Expression: CustomStringConvertible {
     indirect case SExpression([Expression])
+    case ArrayLiteral([SchemeToken])
     case Token(SchemeToken)
     
     var description: String {
         switch self {
-        case .SExpression(let expressions): return expressions.description
+        case .SExpression(let expressions): return "Expression@" + expressions.description
         case .Token(let token): return token.description
+        case .ArrayLiteral(let arr): return "Array@" + arr.description
         }
     }
 }
@@ -78,7 +80,7 @@ class SchemeTest: XCTestCase {
         
         let stringLiteral = between(character("\""), character("\""), parse: until(character("\""))).stringify().withError("string literal")
         
-        let symbol = within("()+-*/").withError("symbol")
+        let symbol = within("()+-*/[],").withError("symbol")
         
         let comment = recurive { parser in
             between(string("/*"), string("*/"), parse: appending(
@@ -99,13 +101,22 @@ class SchemeTest: XCTestCase {
         ), delimiter: many(coalesce(whitespace, comment))))
         
         do {
-            let result = try tokens.parse("((hello (+5 * -3  /* this is a /* nested */ comment */ ) 5.0   \"world\" -43.56  )4  whoa)")
-            XCTAssertEqual(15, result.count)
+            let result = try tokens.parse("((hello (+5 * -3 [ 1, 5, 3 /* this is a good number */ , hello, 3 ]  /* this is a /* nested */ comment */ ) 5.0   \"world\" -43.56  )4  whoa)")
+            XCTAssertEqual(26, result.count)
+            
+            let arrayLiteral = between(token(SchemeToken.Symbol("[")), token(SchemeToken.Symbol("]")), parse:
+                many1Delimited(precondition(not(token(SchemeToken.Symbol("]"))),
+                    thenParse: any()),
+                    delimiter: token(SchemeToken.Symbol(","))).map(Expression.ArrayLiteral)
+            )
             
             let sExpression = recurive { (parser: Parser<SchemeToken, Expression>) in
                 coalesce(
                     between(token(SchemeToken.Symbol("(")), token(SchemeToken.Symbol(")")), parse: many(parser)).map(Expression.SExpression),
-                    unless(token(SchemeToken.Symbol(")"))).map(Expression.Token)
+                    unless(token(SchemeToken.Symbol(")")), parse: coalesce(
+                            arrayLiteral,
+                            any().map(Expression.Token)
+                        ))
                 )
             }
             
