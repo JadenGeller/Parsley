@@ -56,7 +56,7 @@ extension ParserType {
                 return try self.parse(state)
             }
             catch let error as ParseError {
-                return try recovery(error)
+                return recovery(error)
             }
         }
     }

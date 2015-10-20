@@ -44,3 +44,25 @@ public func optional<Token, Result>(parser: Parser<Token, [Result]>) -> Parser<T
 public func optional<Token, Result>(parser: Parser<Token, Result>, otherwise: Result) -> Parser<Token, Result> {
     return parser.otherwise(otherwise)
 }
+
+/**
+    Constructs a `Parser` that will return the unwrapped result if it is not `nil`, and will fail otherwise.
+*/
+extension ParserType where Result: OptionalType {
+    func unwrap() -> Parser<Token, Result.Element> {
+        return requiring { $0.optionalValue != nil }.map { $0.optionalValue! }
+    }
+}
+
+// MARK: Helpers
+
+protocol OptionalType {
+    typealias Element
+    var optionalValue: Optional<Element> { get }
+}
+
+extension Optional: OptionalType {
+    var optionalValue: Optional {
+        return self
+    }
+}
