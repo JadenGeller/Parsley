@@ -110,6 +110,7 @@ class SchemeTest: XCTestCase {
             }
             
             if case let .SExpression(arr) = try sExpression.parse(result) {
+                print(arr)
                 XCTAssertEqual(3, arr.count)
             } else {
                 XCTFail()
