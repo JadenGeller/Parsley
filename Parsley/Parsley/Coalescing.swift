@@ -59,7 +59,7 @@ public func either<Token, LeftResult, RightResult>(leftParser: Parser<Token, Lef
 // MARK: Helpers
 
 /**
-    A datatype that represents can manifest itself as one of two types.
+    A datatype that can manifest itself as one of two types.
 */
 public enum Either<A, B> {
     case Left(A)

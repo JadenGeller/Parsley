@@ -16,11 +16,6 @@ ParserType.swift
 	public protocol ParserType
 	public protocol ParserType
 	public protocol ParserType
-Parser.swift
-	public struct Parser&lt;Token, Result&gt; : ParserType
-	public struct Parser<Token, Result>: ParserType
-	public func parse(state: ParseState<Token>) throws -> Result
-	public func requiring(description: String, _ condition: Result -> Bool) -> Parser<Token, Result>
 ParseState.swift
 	public struct ParseStateSnapshot<Element>
 	public func restoreImage() -> AnyForkableGenerator<Element>
@@ -30,6 +25,8 @@ ParseState.swift
 	public func next() -> Element?
 	public func snapshot() -> ParseStateSnapshot<Element>
 	public func rewind(toSnapshot snapshot: ParseStateSnapshot<Element>)
+Parser.swift
+	public func requiring(description: String, _ condition: Result -> Bool) -> Parser<Token, Result>
 Debug.swift
 	public func printAttempt(message: String? = nil) -> Parser<Token, Result>
 	public func printSuccess(message: String? = nil) -> Parser<Token, Result>

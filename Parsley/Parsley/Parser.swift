@@ -6,6 +6,10 @@
 //  Copyright © 2015 Jaden Geller. All rights reserved.
 //
 
+/**
+    Represents a parser that takes in a seqeunce of type `Token` as input and returns
+    a single instance of type `Result` as output.
+*/
 public struct Parser<Token, Result>: ParserType {
     typealias Implementation = ParseState<Token> throws -> Result
     
@@ -14,17 +18,25 @@ public struct Parser<Token, Result>: ParserType {
         self.implementation = implementation
     }
     
+    /**
+        Runs the parser on the passed in `state`.
+    
+        - Parameter state: The state representing remaining input to be parsed.
+    
+        - Throws: `ParseError` if unable to parse.
+        - Returns: The result of the parsing, `Result`.
+    */
     public func parse(state: ParseState<Token>) throws -> Result {
         return try implementation(state)
     }
     
     /**
-    Returns a `Parser` that, on successful parse, continues parsing with the parser resulting
-    from mapping `transform` over its result value; returns the result of this new parser.
+        Returns a `Parser` that, on successful parse, continues parsing with the parser resulting
+        from mapping `transform` over its result value; returns the result of this new parser.
     
-    Can be used to chain parsers together sequentially.
+        Can be used to chain parsers together sequentially.
     
-    - Parameter transform: The transform to map over the result.
+        - Parameter transform: The transform to map over the result.
     */
     public func flatMap<MappedResult>(transform: Result throws -> Parser<Token, MappedResult>) -> Parser<Token, MappedResult> {
         return Parser<Token, MappedResult> { state in
