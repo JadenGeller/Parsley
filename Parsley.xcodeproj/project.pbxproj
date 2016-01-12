@@ -7,9 +7,23 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		4D72139F1C44A9E7007B806B /* Parsley.h in Headers */ = {isa = PBXBuildFile; fileRef = 4D72139E1C44A9E7007B806B /* Parsley.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		4D7213A61C44A9E7007B806B /* Parsley.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4D72139B1C44A9E7007B806B /* Parsley.framework */; };
-		4D7213AB1C44A9E7007B806B /* ParsleyTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D7213AA1C44A9E7007B806B /* ParsleyTests.swift */; };
+		4D7213B81C44AA06007B806B /* Parser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D7213B71C44AA06007B806B /* Parser.swift */; };
+		4D7213BD1C44ABC4007B806B /* ParseState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D7213BC1C44ABC4007B806B /* ParseState.swift */; };
+		4D7213D31C44B1A5007B806B /* Spork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4D7213D01C44B1A0007B806B /* Spork.framework */; };
+		4D7213D71C44B3F2007B806B /* ParseError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D7213D61C44B3F2007B806B /* ParseError.swift */; };
+		4D7213DE1C44C9EC007B806B /* Base.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D7213DD1C44C9EC007B806B /* Base.swift */; };
+		4D7213E01C44CFAF007B806B /* BaseTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D7213DF1C44CFAF007B806B /* BaseTests.swift */; };
+		4D7213E61C44E5DA007B806B /* Repeating.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D7213E51C44E5DA007B806B /* Repeating.swift */; };
+		4D7213E81C44E7EE007B806B /* Backtracking.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D7213E71C44E7EE007B806B /* Backtracking.swift */; };
+		4D7213EA1C44F0FE007B806B /* Sequencing.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D7213E91C44F0FE007B806B /* Sequencing.swift */; };
+		4D7213EC1C44F6EA007B806B /* RepeatingTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D7213EB1C44F6EA007B806B /* RepeatingTest.swift */; };
+		4DED4F761C45061400A29534 /* Text.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DED4F751C45061400A29534 /* Text.swift */; };
+		4DED4F7A1C450CE200A29534 /* Coalescing.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DED4F791C450CE200A29534 /* Coalescing.swift */; };
+		4DED4F7D1C45105100A29534 /* CoalescingTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DED4F7B1C45105100A29534 /* CoalescingTests.swift */; };
+		4DED4F7F1C4513E200A29534 /* SequencingTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DED4F7E1C4513E200A29534 /* SequencingTests.swift */; };
+		4DED4F811C45169C00A29534 /* Optional.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DED4F801C45169C00A29534 /* Optional.swift */; };
+		4DF9E5A41C4517950023095A /* Recursive.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DF9E5A31C4517950023095A /* Recursive.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -20,15 +34,43 @@
 			remoteGlobalIDString = 4D72139A1C44A9E7007B806B;
 			remoteInfo = Parsley;
 		};
+		4D7213CF1C44B1A0007B806B /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 4D7213CA1C44B1A0007B806B /* Spork.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 4D0E2BCE1BCCC20B00826435;
+			remoteInfo = Spork;
+		};
+		4D7213D11C44B1A0007B806B /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 4D7213CA1C44B1A0007B806B /* Spork.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 4D0E2BD81BCCC20B00826435;
+			remoteInfo = SporkTests;
+		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
 		4D72139B1C44A9E7007B806B /* Parsley.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Parsley.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		4D72139E1C44A9E7007B806B /* Parsley.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Parsley.h; sourceTree = "<group>"; };
 		4D7213A01C44A9E7007B806B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		4D7213A51C44A9E7007B806B /* ParsleyTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ParsleyTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		4D7213AA1C44A9E7007B806B /* ParsleyTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParsleyTests.swift; sourceTree = "<group>"; };
 		4D7213AC1C44A9E7007B806B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		4D7213B71C44AA06007B806B /* Parser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Parser.swift; path = Sources/Parser.swift; sourceTree = SOURCE_ROOT; };
+		4D7213BC1C44ABC4007B806B /* ParseState.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ParseState.swift; path = Sources/ParseState.swift; sourceTree = SOURCE_ROOT; };
+		4D7213CA1C44B1A0007B806B /* Spork.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = Spork.xcodeproj; path = "Packages/Spork-1.1.0/Spork/Spork.xcodeproj"; sourceTree = "<group>"; };
+		4D7213D61C44B3F2007B806B /* ParseError.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ParseError.swift; path = ../Sources/ParseError.swift; sourceTree = "<group>"; };
+		4D7213DD1C44C9EC007B806B /* Base.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Base.swift; path = Sources/Base.swift; sourceTree = SOURCE_ROOT; };
+		4D7213DF1C44CFAF007B806B /* BaseTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseTests.swift; sourceTree = "<group>"; };
+		4D7213E51C44E5DA007B806B /* Repeating.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Repeating.swift; path = Sources/Repeating.swift; sourceTree = SOURCE_ROOT; };
+		4D7213E71C44E7EE007B806B /* Backtracking.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Backtracking.swift; path = Sources/Backtracking.swift; sourceTree = SOURCE_ROOT; };
+		4D7213E91C44F0FE007B806B /* Sequencing.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Sequencing.swift; path = Sources/Sequencing.swift; sourceTree = SOURCE_ROOT; };
+		4D7213EB1C44F6EA007B806B /* RepeatingTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RepeatingTest.swift; sourceTree = "<group>"; };
+		4DED4F751C45061400A29534 /* Text.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Text.swift; path = Sources/Text.swift; sourceTree = SOURCE_ROOT; };
+		4DED4F791C450CE200A29534 /* Coalescing.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Coalescing.swift; path = Sources/Coalescing.swift; sourceTree = SOURCE_ROOT; };
+		4DED4F7B1C45105100A29534 /* CoalescingTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CoalescingTests.swift; path = ParsleyTests/CoalescingTests.swift; sourceTree = SOURCE_ROOT; };
+		4DED4F7E1C4513E200A29534 /* SequencingTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SequencingTests.swift; sourceTree = "<group>"; };
+		4DED4F801C45169C00A29534 /* Optional.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Optional.swift; path = Sources/Optional.swift; sourceTree = SOURCE_ROOT; };
+		4DF9E5A31C4517950023095A /* Recursive.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Recursive.swift; path = Sources/Recursive.swift; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -36,6 +78,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4D7213D31C44B1A5007B806B /* Spork.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -50,9 +93,42 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		4D7125271C4519FD00737AF1 /* Parser */ = {
+			isa = PBXGroup;
+			children = (
+				4D7213B71C44AA06007B806B /* Parser.swift */,
+				4D7213BC1C44ABC4007B806B /* ParseState.swift */,
+				4D7213D61C44B3F2007B806B /* ParseError.swift */,
+			);
+			name = Parser;
+			sourceTree = "<group>";
+		};
+		4D7125281C451A0600737AF1 /* Basic */ = {
+			isa = PBXGroup;
+			children = (
+				4D7213DD1C44C9EC007B806B /* Base.swift */,
+				4DED4F751C45061400A29534 /* Text.swift */,
+			);
+			name = Basic;
+			sourceTree = "<group>";
+		};
+		4D7125291C451A0D00737AF1 /* Combinators */ = {
+			isa = PBXGroup;
+			children = (
+				4D7213E71C44E7EE007B806B /* Backtracking.swift */,
+				4DED4F791C450CE200A29534 /* Coalescing.swift */,
+				4D7213E51C44E5DA007B806B /* Repeating.swift */,
+				4D7213E91C44F0FE007B806B /* Sequencing.swift */,
+				4DED4F801C45169C00A29534 /* Optional.swift */,
+				4DF9E5A31C4517950023095A /* Recursive.swift */,
+			);
+			name = Combinators;
+			sourceTree = "<group>";
+		};
 		4D7213911C44A9E7007B806B = {
 			isa = PBXGroup;
 			children = (
+				4D7213CA1C44B1A0007B806B /* Spork.xcodeproj */,
 				4D72139D1C44A9E7007B806B /* Parsley */,
 				4D7213A91C44A9E7007B806B /* ParsleyTests */,
 				4D72139C1C44A9E7007B806B /* Products */,
@@ -71,7 +147,9 @@
 		4D72139D1C44A9E7007B806B /* Parsley */ = {
 			isa = PBXGroup;
 			children = (
-				4D72139E1C44A9E7007B806B /* Parsley.h */,
+				4D7125271C4519FD00737AF1 /* Parser */,
+				4D7125281C451A0600737AF1 /* Basic */,
+				4D7125291C451A0D00737AF1 /* Combinators */,
 				4D7213A01C44A9E7007B806B /* Info.plist */,
 			);
 			path = Parsley;
@@ -80,10 +158,22 @@
 		4D7213A91C44A9E7007B806B /* ParsleyTests */ = {
 			isa = PBXGroup;
 			children = (
-				4D7213AA1C44A9E7007B806B /* ParsleyTests.swift */,
+				4D7213DF1C44CFAF007B806B /* BaseTests.swift */,
+				4D7213EB1C44F6EA007B806B /* RepeatingTest.swift */,
+				4DED4F7B1C45105100A29534 /* CoalescingTests.swift */,
+				4DED4F7E1C4513E200A29534 /* SequencingTests.swift */,
 				4D7213AC1C44A9E7007B806B /* Info.plist */,
 			);
 			path = ParsleyTests;
+			sourceTree = "<group>";
+		};
+		4D7213CB1C44B1A0007B806B /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				4D7213D01C44B1A0007B806B /* Spork.framework */,
+				4D7213D21C44B1A0007B806B /* SporkTests.xctest */,
+			);
+			name = Products;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -93,7 +183,6 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				4D72139F1C44A9E7007B806B /* Parsley.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -164,6 +253,12 @@
 			mainGroup = 4D7213911C44A9E7007B806B;
 			productRefGroup = 4D72139C1C44A9E7007B806B /* Products */;
 			projectDirPath = "";
+			projectReferences = (
+				{
+					ProductGroup = 4D7213CB1C44B1A0007B806B /* Products */;
+					ProjectRef = 4D7213CA1C44B1A0007B806B /* Spork.xcodeproj */;
+				},
+			);
 			projectRoot = "";
 			targets = (
 				4D72139A1C44A9E7007B806B /* Parsley */,
@@ -171,6 +266,23 @@
 			);
 		};
 /* End PBXProject section */
+
+/* Begin PBXReferenceProxy section */
+		4D7213D01C44B1A0007B806B /* Spork.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = Spork.framework;
+			remoteRef = 4D7213CF1C44B1A0007B806B /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		4D7213D21C44B1A0007B806B /* SporkTests.xctest */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.cfbundle;
+			path = SporkTests.xctest;
+			remoteRef = 4D7213D11C44B1A0007B806B /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+/* End PBXReferenceProxy section */
 
 /* Begin PBXResourcesBuildPhase section */
 		4D7213991C44A9E7007B806B /* Resources */ = {
@@ -194,6 +306,17 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4D7213B81C44AA06007B806B /* Parser.swift in Sources */,
+				4DED4F811C45169C00A29534 /* Optional.swift in Sources */,
+				4D7213DE1C44C9EC007B806B /* Base.swift in Sources */,
+				4DED4F761C45061400A29534 /* Text.swift in Sources */,
+				4DF9E5A41C4517950023095A /* Recursive.swift in Sources */,
+				4D7213E61C44E5DA007B806B /* Repeating.swift in Sources */,
+				4D7213EA1C44F0FE007B806B /* Sequencing.swift in Sources */,
+				4DED4F7A1C450CE200A29534 /* Coalescing.swift in Sources */,
+				4D7213E81C44E7EE007B806B /* Backtracking.swift in Sources */,
+				4D7213BD1C44ABC4007B806B /* ParseState.swift in Sources */,
+				4D7213D71C44B3F2007B806B /* ParseError.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -201,7 +324,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				4D7213AB1C44A9E7007B806B /* ParsleyTests.swift in Sources */,
+				4DED4F7D1C45105100A29534 /* CoalescingTests.swift in Sources */,
+				4DED4F7F1C4513E200A29534 /* SequencingTests.swift in Sources */,
+				4D7213E01C44CFAF007B806B /* BaseTests.swift in Sources */,
+				4D7213EC1C44F6EA007B806B /* RepeatingTest.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -305,6 +431,7 @@
 		4D7213B01C44A9E7007B806B /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				COMBINE_HIDPI_IMAGES = YES;
 				DEFINES_MODULE = YES;
 				DYLIB_COMPATIBILITY_VERSION = 1;
@@ -317,12 +444,14 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.JadenGeller.Parsley;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
 			name = Debug;
 		};
 		4D7213B11C44A9E7007B806B /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				COMBINE_HIDPI_IMAGES = YES;
 				DEFINES_MODULE = YES;
 				DYLIB_COMPATIBILITY_VERSION = 1;
@@ -379,6 +508,7 @@
 				4D7213B11C44A9E7007B806B /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		4D7213B21C44A9E7007B806B /* Build configuration list for PBXNativeTarget "ParsleyTests" */ = {
 			isa = XCConfigurationList;
@@ -387,6 +517,7 @@
 				4D7213B41C44A9E7007B806B /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
