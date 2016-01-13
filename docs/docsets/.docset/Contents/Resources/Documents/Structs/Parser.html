@@ -1,0 +1,396 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Parser Struct Reference</title>
+    <link rel="stylesheet" type="text/css" href="../css/jazzy.css" />
+    <link rel="stylesheet" type="text/css" href="../css/highlight.css" />
+    <meta charset='utf-8'>
+    <script src="../js/jquery.min.js" defer></script>
+    <script src="../js/jazzy.js" defer></script>
+    
+  </head>
+  <body>
+    <a name="//apple_ref/swift/Struct/Parser" class="dashAnchor"></a>
+    <a title="Parser Struct Reference"></a>
+    <header>
+      <div class="content-wrapper">
+        <p><a href="../index.html"> Docs</a> (100% documented)</p>
+      </div>
+    </header>
+    <div class="content-wrapper">
+      <p id="breadcrumbs">
+        <a href="../index.html"> Reference</a>
+        <img id="carat" src="../img/carat.png" />
+        Parser Struct Reference
+      </p>
+    </div>
+    <div class="content-wrapper">
+      <nav class="sidebar">
+        <ul class="nav-groups">
+          <li class="nav-group-name">
+            <a href="../Classes.html">Classes</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="../Classes/ParseState.html">ParseState</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a href="../Enums.html">Enums</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="../Enums/Either.html">Either</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/ParseError.html">ParseError</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a href="../Extensions.html">Extensions</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="../Extensions/Optional.html">Optional</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a href="../Functions.html">Functions</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="../Functions/+(_:_:).html">+(_:_:)</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Functions.html#/s:ZF7Parsleyoi2eeu0_Rq_Ss9Equatableq0_S0__FTGOS_6Eitherq_q0__GS1_q_q0___Sb">==(_:_:)</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Functions/??(_:_:).html">??(_:_:)</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Functions.html#/s:F7Parsley3anyurFT_GVS_6Parserq_q__">any()</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Functions.html#/s:F7Parsley7attemptu0_rFGVS_6Parserq_q0__GS0_q_q0__">attempt(_:)</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Functions.html#/s:F7Parsley8coalesceu0_rFtGSaGVS_6Parserq_q0____GS0_q_q0__">coalesce(_:)</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Functions.html#/s:F7Parsley8coalesceu1_Rq1_Ss12SequenceTypezqqq1_S0_9GeneratorSs13GeneratorType7ElementGVS_6Parserq_q0___Fq1_GS2_q_q0__">coalesce(_:)</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Functions.html#/s:F7Parsley6concatu0_rFtGSaGVS_6Parserq_GSaq0_____GS0_q_GSaq0___">concat(_:)</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Functions.html#/s:F7Parsley6concatu1_Rq1_Ss12SequenceTypezqqq1_S0_9GeneratorSs13GeneratorType7ElementGVS_6Parserq_GSaq0____Fq1_GS2_q_GSaq0___">concat(_:)</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Functions.html#/s:F7Parsley6eitheru1_rFTGVS_6Parserq_q0__GS0_q_q1___GS0_q_GOS_6Eitherq0_q1___">either(_:_:)</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Functions.html#/s:F7Parsley3endurFT_GVS_6Parserq_T__">end()</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Functions.html#/s:F7Parsley3fewu1_rFTGVS_6Parserq_q0__4thenGS0_q_q1___GS0_q_TGSaq0__q1___">few(_:then:)</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Functions.html#/s:F7Parsley4few1u1_rFTGVS_6Parserq_q0__4thenGS0_q_q1___GS0_q_TGSaq0__q1___">few1(_:then:)</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Functions.html#/s:F7Parsley4manyu0_rFGVS_6Parserq_q0__GS0_q_GSaq0___">many(_:)</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Functions.html#/s:F7Parsley4manyu1_rFTGVS_6Parserq_q0__4thenGS0_q_q1___GS0_q_TGSaq0__q1___">many(_:then:)</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Functions.html#/s:F7Parsley5many1u0_rFGVS_6Parserq_q0__GS0_q_GSaq0___">many1(_:)</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Functions.html#/s:F7Parsley5many1u1_rFTGVS_6Parserq_q0__4thenGS0_q_q1___GS0_q_TGSaq0__q1___">many1(_:then:)</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Functions.html#/s:F7Parsley4noneurFT_GVS_6Parserq_T__">none()</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Functions.html#/s:F7Parsley5oneOfuRq_Ss12SequenceTypeqqq_S0_9GeneratorSs13GeneratorType7ElementSs9Equatable_Fq_GVS_6Parserqqq_S0_9GeneratorS1_7Elementqqq_S0_9GeneratorS1_7Element_">oneOf(_:)</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Functions.html#/s:F7Parsley5oneOfuRq_Ss9Equatable_FtGSaq___GVS_6Parserq_q__">oneOf(_:)</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Functions.html#/s:F7Parsley8optionalu0_rFGVS_6Parserq_GSaq0___GS0_q_GSaq0___">optional(_:)</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Functions.html#/s:F7Parsley8optionalu0_rFGVS_6Parserq_q0__GS0_q_GSqq0___">optional(_:)</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Functions.html#/s:F7Parsley8optionalu0_rFTGVS_6Parserq_q0__9otherwiseq0__GS0_q_q0__">optional(_:otherwise:)</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Functions.html#/s:F7Parsley4pairu1_rFTGVS_6Parserq_q0__GS0_q_q1___GS0_q_Tq0_q1___">pair(_:_:)</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Functions.html#/s:F7Parsley4pureu0_rFq0_GVS_6Parserq_q0__">pure(_:)</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Functions.html#/s:F7Parsley9recursiveu0_rFFGVS_6Parserq_q0__GS0_q_q0__GS0_q_q0__">recursive(_:)</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Functions.html#/s:F7Parsley8repeatedu0_rFTGVS_6Parserq_q0__12betweenCountGVSs14ClosedIntervalSi__GS0_q_GSaq0___">repeated(_:betweenCount:)</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Functions.html#/s:F7Parsley8repeatedu0_rFTGVS_6Parserq_q0__12betweenCountGVSs16HalfOpenIntervalSi__GS0_q_GSaq0___">repeated(_:betweenCount:)</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Functions.html#/s:F7Parsley8repeatedu0_rFTGVS_6Parserq_q0__10exactCountSi_GS0_q_GSaq0___">repeated(_:exactCount:)</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Functions.html#/s:F7Parsley8repeatedu0_rFTGVS_6Parserq_q0__8maxCountSi_GS0_q_GSaq0___">repeated(_:maxCount:)</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Functions.html#/s:F7Parsley8repeatedu0_rFTGVS_6Parserq_q0__8minCountSi_GS0_q_GSaq0___">repeated(_:minCount:)</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Functions.html#/s:F7Parsley7satisfyurFFq_SbGVS_6Parserq_q__">satisfy(_:)</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Functions.html#/s:F7Parsley8sequenceu0_rFtGSaGVS_6Parserq_q0____GS0_q_GSaq0___">sequence(_:)</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Functions.html#/s:F7Parsley8sequenceu1_Rq1_Ss12SequenceTypezqqq1_S0_9GeneratorSs13GeneratorType7ElementGVS_6Parserq_q0___Fq1_GS2_q_GSaq0___">sequence(_:)</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Functions.html#/s:F7Parsley11terminatingu0_rFGVS_6Parserq_q0__GS0_q_q0__">terminating(_:)</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Functions.html#/s:F7Parsley5tokenuRq_Ss9Equatable_Fq_GVS_6Parserq_q__">token(_:)</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Functions.html#/s:F7Parsley6withinuRq_Ss12IntervalType_Fq_GVS_6Parserqq_S0_5Boundqq_S0_5Bound_">within(_:)</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a href="../Protocols.html">Protocols</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="../Protocols/OptionalType.html">OptionalType</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Protocols/ParserType.html">ParserType</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a href="../Structs.html">Structs</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="../Structs.html#/s:V7Parsley20ParseStateCheckpoint">ParseStateCheckpoint</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/Parser.html">Parser</a>
+              </li>
+            </ul>
+          </li>
+        </ul>
+      </nav>
+      <article class="main-content">
+        <section>
+          <section class="section">
+            <h1>Parser</h1>
+            <p>Undocumented</p>
+
+          </section>
+          <section class="section task-group-section">
+            <div class="task-group">
+              <ul>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:FV7Parsley6Parsercu0_rFMGS0_q_q0__FFzGCS_10ParseStateq__q0_GS0_q_q0__"></a>
+                    <a name="//apple_ref/swift/Method/init(_:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:FV7Parsley6Parsercu0_rFMGS0_q_q0__FFzGCS_10ParseStateq__q0_GS0_q_q0__">init(_:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:FV7Parsley6Parser5parseu0_rFGS0_q_q0__FzGCS_10ParseStateq__q0_"></a>
+                    <a name="//apple_ref/swift/Method/parse(_:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:FV7Parsley6Parser5parseu0_rFGS0_q_q0__FzGCS_10ParseStateq__q0_">parse(_:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Runs the parser on the passed in <code>state</code>, potentially mutating the state.</p>
+
+<div class="aside aside-parameter">
+    <p class="aside-title">Parameter</p>
+    <p>Parameter state: The state representing remaining input to be parsed.</p>
+
+</div>
+
+<div class="aside aside-throws">
+    <p class="aside-title">Throws</p>
+    <p><code><a href="../Enums/ParseError.html">ParseError</a></code> if unable to parse.</p>
+
+</div>
+
+<div class="aside aside-returns">
+    <p class="aside-title">Returns</p>
+    <p>The resulting parsed value.</p>
+
+</div>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">@warn_unused_result</span> <span class="kd">public</span> <span class="kd">func</span> <span class="nf">parse</span><span class="p">(</span><span class="nv">state</span><span class="p">:</span> <span class="kt">ParseState</span><span class="o">&lt;</span><span class="kt">Token</span><span class="o">&gt;</span><span class="p">)</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt">Result</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>state</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The state representing remaining input to be parsed.</p>
+
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                      <div>
+                        <h4>Return Value</h4>
+                        <p>The resulting parsed value.</p>
+
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+            <div class="task-group">
+              <ul>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:FV7Parsley6Parser4liftu0_rFGS0_q_q0__FT_GS0_q_GSaq0___"></a>
+                    <a name="//apple_ref/swift/Method/lift()" class="dashAnchor"></a>
+                    <a class="token" href="#/s:FV7Parsley6Parser4liftu0_rFGS0_q_q0__FT_GS0_q_GSaq0___">lift()</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Converts a parser that results in an elemnt into a parser that results in an Array.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">@warn_unused_result</span> <span class="kd">public</span> <span class="kd">func</span> <span class="nf">lift</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="kt">Parser</span><span class="o">&lt;</span><span class="kt">Token</span><span class="p">,</span> <span class="p">[</span><span class="kt">Result</span><span class="p">]</span><span class="o">&gt;</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+            <div class="task-group">
+              <ul>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:FV7Parsley6Parser9otherwiseu0_rFGS0_q_q0__Fq0_GS0_q_q0__"></a>
+                    <a name="//apple_ref/swift/Method/otherwise(_:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:FV7Parsley6Parser9otherwiseu0_rFGS0_q_q0__Fq0_GS0_q_q0__">otherwise(_:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Constructs a <code><a href="../Structs/Parser.html">Parser</a></code> that catches an error and returns <code>recovery</code> instead.</p>
+
+<div class="aside aside-parameter">
+    <p class="aside-title">Parameter</p>
+    Parameter recovery: Result to be returned in case of an error.
+
+</div>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">@warn_unused_result</span> <span class="kd">public</span> <span class="kd">func</span> <span class="nf">otherwise</span><span class="p">(</span><span class="nv">recovery</span><span class="p">:</span> <span class="kt">Result</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">Parser</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>recovery</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>Result to be returned in case of an error.</p>
+
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+          </section>
+        </section>
+        <section id="footer">
+          <p>&copy; 2016 <a class="link" href="" target="_blank" rel="external"></a>. All rights reserved. (Last updated: 2016-01-12)</p>
+          <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.5.0</a>, a <a class="link" href="http://realm.io" target="_blank" rel="external">Realm</a> project.</p>
+        </section>
+      </article>
+    </div>
+  </body>
+</div>
+</html>
