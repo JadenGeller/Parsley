@@ -133,3 +133,12 @@ extension ParserType {
     }
 }
 
+extension Parser {
+    /**
+        Converts a parser that results in an elemnt into a parser that results in an Array.
+    */
+    @warn_unused_result public func lift() -> Parser<Token, [Result]> {
+        return map { [$0] }
+    }
+}
+

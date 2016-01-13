@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4D71252C1C45C45900737AF1 /* SchemeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D71252B1C45C45900737AF1 /* SchemeTests.swift */; };
 		4D7213A61C44A9E7007B806B /* Parsley.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4D72139B1C44A9E7007B806B /* Parsley.framework */; };
 		4D7213B81C44AA06007B806B /* Parser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D7213B71C44AA06007B806B /* Parser.swift */; };
 		4D7213BD1C44ABC4007B806B /* ParseState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D7213BC1C44ABC4007B806B /* ParseState.swift */; };
@@ -18,7 +19,6 @@
 		4D7213E81C44E7EE007B806B /* Backtracking.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D7213E71C44E7EE007B806B /* Backtracking.swift */; };
 		4D7213EA1C44F0FE007B806B /* Sequencing.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D7213E91C44F0FE007B806B /* Sequencing.swift */; };
 		4D7213EC1C44F6EA007B806B /* RepeatingTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D7213EB1C44F6EA007B806B /* RepeatingTest.swift */; };
-		4DED4F761C45061400A29534 /* Text.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DED4F751C45061400A29534 /* Text.swift */; };
 		4DED4F7A1C450CE200A29534 /* Coalescing.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DED4F791C450CE200A29534 /* Coalescing.swift */; };
 		4DED4F7D1C45105100A29534 /* CoalescingTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DED4F7B1C45105100A29534 /* CoalescingTests.swift */; };
 		4DED4F7F1C4513E200A29534 /* SequencingTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DED4F7E1C4513E200A29534 /* SequencingTests.swift */; };
@@ -51,6 +51,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		4D71252B1C45C45900737AF1 /* SchemeTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SchemeTests.swift; sourceTree = "<group>"; };
 		4D72139B1C44A9E7007B806B /* Parsley.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Parsley.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		4D7213A01C44A9E7007B806B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		4D7213A51C44A9E7007B806B /* ParsleyTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ParsleyTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -65,7 +66,6 @@
 		4D7213E71C44E7EE007B806B /* Backtracking.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Backtracking.swift; path = Sources/Backtracking.swift; sourceTree = SOURCE_ROOT; };
 		4D7213E91C44F0FE007B806B /* Sequencing.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Sequencing.swift; path = Sources/Sequencing.swift; sourceTree = SOURCE_ROOT; };
 		4D7213EB1C44F6EA007B806B /* RepeatingTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RepeatingTest.swift; sourceTree = "<group>"; };
-		4DED4F751C45061400A29534 /* Text.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Text.swift; path = Sources/Text.swift; sourceTree = SOURCE_ROOT; };
 		4DED4F791C450CE200A29534 /* Coalescing.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Coalescing.swift; path = Sources/Coalescing.swift; sourceTree = SOURCE_ROOT; };
 		4DED4F7B1C45105100A29534 /* CoalescingTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CoalescingTests.swift; path = ParsleyTests/CoalescingTests.swift; sourceTree = SOURCE_ROOT; };
 		4DED4F7E1C4513E200A29534 /* SequencingTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SequencingTests.swift; sourceTree = "<group>"; };
@@ -103,15 +103,6 @@
 			name = Parser;
 			sourceTree = "<group>";
 		};
-		4D7125281C451A0600737AF1 /* Basic */ = {
-			isa = PBXGroup;
-			children = (
-				4D7213DD1C44C9EC007B806B /* Base.swift */,
-				4DED4F751C45061400A29534 /* Text.swift */,
-			);
-			name = Basic;
-			sourceTree = "<group>";
-		};
 		4D7125291C451A0D00737AF1 /* Combinators */ = {
 			isa = PBXGroup;
 			children = (
@@ -123,6 +114,25 @@
 				4DF9E5A31C4517950023095A /* Recursive.swift */,
 			);
 			name = Combinators;
+			sourceTree = "<group>";
+		};
+		4D71252F1C45C45C00737AF1 /* Unit Tests */ = {
+			isa = PBXGroup;
+			children = (
+				4D7213DF1C44CFAF007B806B /* BaseTests.swift */,
+				4D7213EB1C44F6EA007B806B /* RepeatingTest.swift */,
+				4DED4F7B1C45105100A29534 /* CoalescingTests.swift */,
+				4DED4F7E1C4513E200A29534 /* SequencingTests.swift */,
+			);
+			name = "Unit Tests";
+			sourceTree = "<group>";
+		};
+		4D7125301C45C47600737AF1 /* Integration Tests */ = {
+			isa = PBXGroup;
+			children = (
+				4D71252B1C45C45900737AF1 /* SchemeTests.swift */,
+			);
+			name = "Integration Tests";
 			sourceTree = "<group>";
 		};
 		4D7213911C44A9E7007B806B = {
@@ -148,7 +158,7 @@
 			isa = PBXGroup;
 			children = (
 				4D7125271C4519FD00737AF1 /* Parser */,
-				4D7125281C451A0600737AF1 /* Basic */,
+				4D7213DD1C44C9EC007B806B /* Base.swift */,
 				4D7125291C451A0D00737AF1 /* Combinators */,
 				4D7213A01C44A9E7007B806B /* Info.plist */,
 			);
@@ -158,10 +168,8 @@
 		4D7213A91C44A9E7007B806B /* ParsleyTests */ = {
 			isa = PBXGroup;
 			children = (
-				4D7213DF1C44CFAF007B806B /* BaseTests.swift */,
-				4D7213EB1C44F6EA007B806B /* RepeatingTest.swift */,
-				4DED4F7B1C45105100A29534 /* CoalescingTests.swift */,
-				4DED4F7E1C4513E200A29534 /* SequencingTests.swift */,
+				4D71252F1C45C45C00737AF1 /* Unit Tests */,
+				4D7125301C45C47600737AF1 /* Integration Tests */,
 				4D7213AC1C44A9E7007B806B /* Info.plist */,
 			);
 			path = ParsleyTests;
@@ -309,7 +317,6 @@
 				4D7213B81C44AA06007B806B /* Parser.swift in Sources */,
 				4DED4F811C45169C00A29534 /* Optional.swift in Sources */,
 				4D7213DE1C44C9EC007B806B /* Base.swift in Sources */,
-				4DED4F761C45061400A29534 /* Text.swift in Sources */,
 				4DF9E5A41C4517950023095A /* Recursive.swift in Sources */,
 				4D7213E61C44E5DA007B806B /* Repeating.swift in Sources */,
 				4D7213EA1C44F0FE007B806B /* Sequencing.swift in Sources */,
@@ -328,6 +335,7 @@
 				4DED4F7F1C4513E200A29534 /* SequencingTests.swift in Sources */,
 				4D7213E01C44CFAF007B806B /* BaseTests.swift in Sources */,
 				4D7213EC1C44F6EA007B806B /* RepeatingTest.swift in Sources */,
+				4D71252C1C45C45900737AF1 /* SchemeTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

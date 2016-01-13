@@ -50,7 +50,7 @@ public func sequence<Token, Result>(parsers: Parser<Token, Result>...) -> Parser
  
     - Parameter parsers: The sequence of parsers to sequentially run.
 */
-public func append<Token, Result, Sequence: SequenceType where Sequence.Generator.Element == Parser<Token, [Result]>>(parsers: Sequence) -> Parser<Token, [Result]> {
+public func concat<Token, Result, Sequence: SequenceType where Sequence.Generator.Element == Parser<Token, [Result]>>(parsers: Sequence) -> Parser<Token, [Result]> {
         return sequence(parsers).map{ Array($0.flatten()) }
 }
 
@@ -60,6 +60,16 @@ public func append<Token, Result, Sequence: SequenceType where Sequence.Generato
  
     - Parameter parsers: The variadic list of parsers to sequentially run.
 */
-public func append<Token, Result>(parsers: Parser<Token, [Result]>...) -> Parser<Token, [Result]> {
-        return append(parsers)
+public func concat<Token, Result>(parsers: Parser<Token, [Result]>...) -> Parser<Token, [Result]> {
+        return concat(parsers)
+}
+
+/**
+ Constructs a `Parser` that will parse will each element of `parsers`, sequentially. Parsing only succeeds if every
+ parser succeeds, and the resulting parser returns an array of the results.
+ 
+ - Parameter parsers: The variadic list of parsers to sequentially run.
+ */
+public func +<Token, Result>(left: Parser<Token, [Result]>, right: Parser<Token, [Result]>) -> Parser<Token, [Result]> {
+    return concat(left, right)
 }

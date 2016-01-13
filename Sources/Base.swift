@@ -95,7 +95,7 @@ public func terminating<Token, Result>(parser: Parser<Token, Result>) -> Parser<
     - Parameter sequence: The sequence that the input is tested against.
  */
 @warn_unused_result public func oneOf<S: SequenceType where S.Generator.Element: Equatable>(sequence: S) -> Parser<S.Generator.Element, S.Generator.Element> {
-    return satisfy(sequence.contains).withError("within(\(sequence)")
+    return satisfy(sequence.contains).withError("oneOf(\(sequence)")
 }
 
 /**
