@@ -1,3 +1,3 @@
 # Parsley
 
-For `String` parsing, use the[*Stringbean*](https://github.com/JadenGeller/Stringbean).
+For `String` parsing, use [Stringbean](https://github.com/JadenGeller/Stringbean), a library built on top of Parsley.
