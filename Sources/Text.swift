@@ -63,45 +63,45 @@ extension Parser where Result: SequenceType, Result.Generator.Element == Charact
 /**
     A `Parser` that succeeds upon consuming a letter from the English alphabet.
  */
-public let letter = within("A"..."z").withError("letter")
+public let letter: Parser<Character, Character> = within("A"..."z").withError("letter")
 
 /**
     A `Parser` that succeeds upon consuming an Arabic numeral.
 */
-public let digit = within("0"..."9").withError("digit")
+public let digit: Parser<Character, Character> = within("0"..."9").withError("digit")
 
 /**
     Constructs a `Parser` that succeeds upon consuming a space character.
 */
-public let space = token(" ").withError("space")
+public let space: Parser<Character, Character> = token(" ").withError("space")
 
 /**
     Constructs a `Parser` that skips zero or more space characters.
 */
-public let spaces = many(space).discard()
+public let spaces: Parser<Character, ()> = many(space).discard()
 
 /**
     Constructs a `Parser` that succeeds upon consuming a new line character.
 */
-public let newLine = token("\n").withError("newline")
+public let newLine: Parser<Character, Character> = token("\n").withError("newline")
 
 /**
     Constructs a `Parser` that succeeds upon consuming a tab character.
 */
-public let tab = token("\t").withError("tab")
+public let tab: Parser<Character, Character> = token("\t").withError("tab")
 
 /**
     Constructs a `Parser` that skips zero or more space characters.
 */
-public let whitespace = many(space ?? newLine ?? tab).discard().withError("whitespace")
+public let whitespace: Parser<Character, ()> = many(space ?? newLine ?? tab).discard().withError("whitespace")
 
 /**
     Constructs a `Parser` that succeeds upon consuming an uppercase letter.
 */
-public let uppercaseLetter = within("A"..."Z").withError("uppercaseLetter")
+public let uppercaseLetter: Parser<Character, Character> = within("A"..."Z").withError("uppercaseLetter")
 
 /**
  Constructs a `Parser` that succeeds upon consuming an lowercase letter.
  */
-public let lowercaseLetter = within("a"..."z").withError("lowercaseLetter")
+public let lowercaseLetter: Parser<Character, Character> = within("a"..."z").withError("lowercaseLetter")
 

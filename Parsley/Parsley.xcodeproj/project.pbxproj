@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		4D71252C1C45C45900737AF1 /* SchemeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D71252B1C45C45900737AF1 /* SchemeTests.swift */; };
+		4D71252C1C45C45900737AF1 /* SchemeTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D71252B1C45C45900737AF1 /* SchemeTest.swift */; };
 		4D7213A61C44A9E7007B806B /* Parsley.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4D72139B1C44A9E7007B806B /* Parsley.framework */; };
 		4D7213E01C44CFAF007B806B /* BaseTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D7213DF1C44CFAF007B806B /* BaseTests.swift */; };
 		4D7213EC1C44F6EA007B806B /* RepeatingTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D7213EB1C44F6EA007B806B /* RepeatingTest.swift */; };
@@ -23,6 +23,8 @@
 		4DBBEFC01C4E4ADA0042E656 /* Spork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4DBBEFBD1C4E4AD00042E656 /* Spork.framework */; };
 		4DBBEFC31C4E4B0C0042E656 /* Base.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DBBEFC11C4E4B0C0042E656 /* Base.swift */; };
 		4DBBEFC41C4E4B0C0042E656 /* Text.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DBBEFC21C4E4B0C0042E656 /* Text.swift */; };
+		4DBBEFC81C4E4D730042E656 /* PrologTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DBBEFC71C4E4D730042E656 /* PrologTest.swift */; };
+		4DBBEFCA1C4E4EBB0042E656 /* Utilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DBBEFC91C4E4EBB0042E656 /* Utilities.swift */; };
 		4DED4F7D1C45105100A29534 /* CoalescingTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DED4F7B1C45105100A29534 /* CoalescingTests.swift */; };
 		4DED4F7F1C4513E200A29534 /* SequencingTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DED4F7E1C4513E200A29534 /* SequencingTests.swift */; };
 /* End PBXBuildFile section */
@@ -52,7 +54,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		4D71252B1C45C45900737AF1 /* SchemeTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SchemeTests.swift; sourceTree = "<group>"; };
+		4D71252B1C45C45900737AF1 /* SchemeTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SchemeTest.swift; sourceTree = "<group>"; };
 		4D72139B1C44A9E7007B806B /* Parsley.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Parsley.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		4D7213A01C44A9E7007B806B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		4D7213A51C44A9E7007B806B /* ParsleyTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ParsleyTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -71,6 +73,8 @@
 		4DBBEFB71C4E4AD00042E656 /* Spork.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = Spork.xcodeproj; path = "../Packages/Spork-1.1.0/Spork/Spork.xcodeproj"; sourceTree = "<group>"; };
 		4DBBEFC11C4E4B0C0042E656 /* Base.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Base.swift; sourceTree = "<group>"; };
 		4DBBEFC21C4E4B0C0042E656 /* Text.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Text.swift; sourceTree = "<group>"; };
+		4DBBEFC71C4E4D730042E656 /* PrologTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PrologTest.swift; sourceTree = "<group>"; };
+		4DBBEFC91C4E4EBB0042E656 /* Utilities.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Utilities.swift; sourceTree = "<group>"; };
 		4DED4F7B1C45105100A29534 /* CoalescingTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CoalescingTests.swift; path = ParsleyTests/CoalescingTests.swift; sourceTree = SOURCE_ROOT; };
 		4DED4F7E1C4513E200A29534 /* SequencingTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SequencingTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -109,7 +113,8 @@
 		4D7125301C45C47600737AF1 /* Integration Tests */ = {
 			isa = PBXGroup;
 			children = (
-				4D71252B1C45C45900737AF1 /* SchemeTests.swift */,
+				4D71252B1C45C45900737AF1 /* SchemeTest.swift */,
+				4DBBEFC71C4E4D730042E656 /* PrologTest.swift */,
 			);
 			name = "Integration Tests";
 			sourceTree = "<group>";
@@ -172,6 +177,7 @@
 				4D9361F51C45D9AA0038951F /* Sequencing.swift */,
 				4D9362041C45D9D00038951F /* Recursive.swift */,
 				4D9362051C45D9D00038951F /* Repeating.swift */,
+				4DBBEFC91C4E4EBB0042E656 /* Utilities.swift */,
 			);
 			name = Combinators;
 			sourceTree = "<group>";
@@ -340,6 +346,7 @@
 				4D9362061C45D9D00038951F /* Recursive.swift in Sources */,
 				4D9362001C45D9AA0038951F /* Parser.swift in Sources */,
 				4D9361FC1C45D9AA0038951F /* Coalescing.swift in Sources */,
+				4DBBEFCA1C4E4EBB0042E656 /* Utilities.swift in Sources */,
 				4D9362011C45D9AA0038951F /* ParseState.swift in Sources */,
 				4D9362071C45D9D00038951F /* Repeating.swift in Sources */,
 				4D9361FD1C45D9AA0038951F /* Optional.swift in Sources */,
@@ -356,7 +363,8 @@
 				4DED4F7F1C4513E200A29534 /* SequencingTests.swift in Sources */,
 				4D7213E01C44CFAF007B806B /* BaseTests.swift in Sources */,
 				4D7213EC1C44F6EA007B806B /* RepeatingTest.swift in Sources */,
-				4D71252C1C45C45900737AF1 /* SchemeTests.swift in Sources */,
+				4DBBEFC81C4E4D730042E656 /* PrologTest.swift in Sources */,
+				4D71252C1C45C45900737AF1 /* SchemeTest.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

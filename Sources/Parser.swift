@@ -34,7 +34,7 @@ public struct Parser<Token, Result>: ParserType {
         - Throws: `ParseError` if unable to parse.
         - Returns: The resulting parsed value.
     */
-    @warn_unused_result public func parse(state: ParseState<Token>) throws -> Result {
+    public func parse(state: ParseState<Token>) throws -> Result {
         return try implementation(state)
     }
 }
