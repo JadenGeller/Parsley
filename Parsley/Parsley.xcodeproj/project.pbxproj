@@ -18,10 +18,11 @@
 		4D9361FF1C45D9AA0038951F /* ParseError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D9361F61C45D9AA0038951F /* ParseError.swift */; };
 		4D9362001C45D9AA0038951F /* Parser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D9361F71C45D9AA0038951F /* Parser.swift */; };
 		4D9362011C45D9AA0038951F /* ParseState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D9361F81C45D9AA0038951F /* ParseState.swift */; };
-		4D9362021C45D9AA0038951F /* Base.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D9361FA1C45D9AA0038951F /* Base.swift */; };
-		4D9362031C45D9BB0038951F /* Spork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4D9361E81C45D8240038951F /* Spork.framework */; };
 		4D9362061C45D9D00038951F /* Recursive.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D9362041C45D9D00038951F /* Recursive.swift */; };
 		4D9362071C45D9D00038951F /* Repeating.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D9362051C45D9D00038951F /* Repeating.swift */; };
+		4DBBEFC01C4E4ADA0042E656 /* Spork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4DBBEFBD1C4E4AD00042E656 /* Spork.framework */; };
+		4DBBEFC31C4E4B0C0042E656 /* Base.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DBBEFC11C4E4B0C0042E656 /* Base.swift */; };
+		4DBBEFC41C4E4B0C0042E656 /* Text.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DBBEFC21C4E4B0C0042E656 /* Text.swift */; };
 		4DED4F7D1C45105100A29534 /* CoalescingTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DED4F7B1C45105100A29534 /* CoalescingTests.swift */; };
 		4DED4F7F1C4513E200A29534 /* SequencingTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DED4F7E1C4513E200A29534 /* SequencingTests.swift */; };
 /* End PBXBuildFile section */
@@ -34,16 +35,16 @@
 			remoteGlobalIDString = 4D72139A1C44A9E7007B806B;
 			remoteInfo = Parsley;
 		};
-		4D9361E71C45D8240038951F /* PBXContainerItemProxy */ = {
+		4DBBEFBC1C4E4AD00042E656 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
-			containerPortal = 4D9361E21C45D8240038951F /* Spork.xcodeproj */;
+			containerPortal = 4DBBEFB71C4E4AD00042E656 /* Spork.xcodeproj */;
 			proxyType = 2;
 			remoteGlobalIDString = 4D0E2BCE1BCCC20B00826435;
 			remoteInfo = Spork;
 		};
-		4D9361E91C45D8240038951F /* PBXContainerItemProxy */ = {
+		4DBBEFBE1C4E4AD00042E656 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
-			containerPortal = 4D9361E21C45D8240038951F /* Spork.xcodeproj */;
+			containerPortal = 4DBBEFB71C4E4AD00042E656 /* Spork.xcodeproj */;
 			proxyType = 2;
 			remoteGlobalIDString = 4D0E2BD81BCCC20B00826435;
 			remoteInfo = SporkTests;
@@ -58,7 +59,6 @@
 		4D7213AC1C44A9E7007B806B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		4D7213DF1C44CFAF007B806B /* BaseTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseTests.swift; sourceTree = "<group>"; };
 		4D7213EB1C44F6EA007B806B /* RepeatingTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RepeatingTest.swift; sourceTree = "<group>"; };
-		4D9361E21C45D8240038951F /* Spork.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = Spork.xcodeproj; path = "../Packages/Spork-1.1.0/Spork/Spork.xcodeproj"; sourceTree = "<group>"; };
 		4D9361F21C45D9AA0038951F /* Backtracking.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Backtracking.swift; sourceTree = "<group>"; };
 		4D9361F31C45D9AA0038951F /* Coalescing.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Coalescing.swift; sourceTree = "<group>"; };
 		4D9361F41C45D9AA0038951F /* Optional.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Optional.swift; sourceTree = "<group>"; };
@@ -66,9 +66,11 @@
 		4D9361F61C45D9AA0038951F /* ParseError.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ParseError.swift; sourceTree = "<group>"; };
 		4D9361F71C45D9AA0038951F /* Parser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Parser.swift; sourceTree = "<group>"; };
 		4D9361F81C45D9AA0038951F /* ParseState.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ParseState.swift; sourceTree = "<group>"; };
-		4D9361FA1C45D9AA0038951F /* Base.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Base.swift; sourceTree = "<group>"; };
 		4D9362041C45D9D00038951F /* Recursive.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Recursive.swift; sourceTree = "<group>"; };
 		4D9362051C45D9D00038951F /* Repeating.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Repeating.swift; sourceTree = "<group>"; };
+		4DBBEFB71C4E4AD00042E656 /* Spork.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = Spork.xcodeproj; path = "../Packages/Spork-1.1.0/Spork/Spork.xcodeproj"; sourceTree = "<group>"; };
+		4DBBEFC11C4E4B0C0042E656 /* Base.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Base.swift; sourceTree = "<group>"; };
+		4DBBEFC21C4E4B0C0042E656 /* Text.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Text.swift; sourceTree = "<group>"; };
 		4DED4F7B1C45105100A29534 /* CoalescingTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CoalescingTests.swift; path = ParsleyTests/CoalescingTests.swift; sourceTree = SOURCE_ROOT; };
 		4DED4F7E1C4513E200A29534 /* SequencingTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SequencingTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -78,7 +80,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				4D9362031C45D9BB0038951F /* Spork.framework in Frameworks */,
+				4DBBEFC01C4E4ADA0042E656 /* Spork.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -115,7 +117,7 @@
 		4D7213911C44A9E7007B806B = {
 			isa = PBXGroup;
 			children = (
-				4D9361E21C45D8240038951F /* Spork.xcodeproj */,
+				4DBBEFB71C4E4AD00042E656 /* Spork.xcodeproj */,
 				4D72139D1C44A9E7007B806B /* Parsley */,
 				4D7213A91C44A9E7007B806B /* ParsleyTests */,
 				4D72139C1C44A9E7007B806B /* Products */,
@@ -150,23 +152,12 @@
 			path = ParsleyTests;
 			sourceTree = "<group>";
 		};
-		4D9361E31C45D8240038951F /* Products */ = {
-			isa = PBXGroup;
-			children = (
-				4D9361E81C45D8240038951F /* Spork.framework */,
-				4D9361EA1C45D8240038951F /* SporkTests.xctest */,
-			);
-			name = Products;
-			sourceTree = "<group>";
-		};
 		4D9361F01C45D9AA0038951F /* Sources */ = {
 			isa = PBXGroup;
 			children = (
+				4DBBEFC61C4E4B310042E656 /* Internals */,
+				4DBBEFC51C4E4B0F0042E656 /* Primitives */,
 				4D9361F11C45D9AA0038951F /* Cominators */,
-				4D9361F61C45D9AA0038951F /* ParseError.swift */,
-				4D9361F71C45D9AA0038951F /* Parser.swift */,
-				4D9361F81C45D9AA0038951F /* ParseState.swift */,
-				4D9361F91C45D9AA0038951F /* Primitives */,
 			);
 			name = Sources;
 			path = ../../Sources;
@@ -182,15 +173,35 @@
 				4D9362041C45D9D00038951F /* Recursive.swift */,
 				4D9362051C45D9D00038951F /* Repeating.swift */,
 			);
-			path = Cominators;
+			name = Cominators;
 			sourceTree = "<group>";
 		};
-		4D9361F91C45D9AA0038951F /* Primitives */ = {
+		4DBBEFB81C4E4AD00042E656 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				4D9361FA1C45D9AA0038951F /* Base.swift */,
+				4DBBEFBD1C4E4AD00042E656 /* Spork.framework */,
+				4DBBEFBF1C4E4AD00042E656 /* SporkTests.xctest */,
 			);
-			path = Primitives;
+			name = Products;
+			sourceTree = "<group>";
+		};
+		4DBBEFC51C4E4B0F0042E656 /* Primitives */ = {
+			isa = PBXGroup;
+			children = (
+				4DBBEFC11C4E4B0C0042E656 /* Base.swift */,
+				4DBBEFC21C4E4B0C0042E656 /* Text.swift */,
+			);
+			name = Primitives;
+			sourceTree = "<group>";
+		};
+		4DBBEFC61C4E4B310042E656 /* Internals */ = {
+			isa = PBXGroup;
+			children = (
+				4D9361F61C45D9AA0038951F /* ParseError.swift */,
+				4D9361F71C45D9AA0038951F /* Parser.swift */,
+				4D9361F81C45D9AA0038951F /* ParseState.swift */,
+			);
+			name = Internals;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -272,8 +283,8 @@
 			projectDirPath = "";
 			projectReferences = (
 				{
-					ProductGroup = 4D9361E31C45D8240038951F /* Products */;
-					ProjectRef = 4D9361E21C45D8240038951F /* Spork.xcodeproj */;
+					ProductGroup = 4DBBEFB81C4E4AD00042E656 /* Products */;
+					ProjectRef = 4DBBEFB71C4E4AD00042E656 /* Spork.xcodeproj */;
 				},
 			);
 			projectRoot = "";
@@ -285,18 +296,18 @@
 /* End PBXProject section */
 
 /* Begin PBXReferenceProxy section */
-		4D9361E81C45D8240038951F /* Spork.framework */ = {
+		4DBBEFBD1C4E4AD00042E656 /* Spork.framework */ = {
 			isa = PBXReferenceProxy;
 			fileType = wrapper.framework;
 			path = Spork.framework;
-			remoteRef = 4D9361E71C45D8240038951F /* PBXContainerItemProxy */;
+			remoteRef = 4DBBEFBC1C4E4AD00042E656 /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
-		4D9361EA1C45D8240038951F /* SporkTests.xctest */ = {
+		4DBBEFBF1C4E4AD00042E656 /* SporkTests.xctest */ = {
 			isa = PBXReferenceProxy;
 			fileType = wrapper.cfbundle;
 			path = SporkTests.xctest;
-			remoteRef = 4D9361E91C45D8240038951F /* PBXContainerItemProxy */;
+			remoteRef = 4DBBEFBE1C4E4AD00042E656 /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
 /* End PBXReferenceProxy section */
@@ -323,15 +334,16 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				4D9362021C45D9AA0038951F /* Base.swift in Sources */,
 				4D9361FB1C45D9AA0038951F /* Backtracking.swift in Sources */,
 				4D9361FE1C45D9AA0038951F /* Sequencing.swift in Sources */,
+				4DBBEFC31C4E4B0C0042E656 /* Base.swift in Sources */,
 				4D9362061C45D9D00038951F /* Recursive.swift in Sources */,
 				4D9362001C45D9AA0038951F /* Parser.swift in Sources */,
 				4D9361FC1C45D9AA0038951F /* Coalescing.swift in Sources */,
 				4D9362011C45D9AA0038951F /* ParseState.swift in Sources */,
 				4D9362071C45D9D00038951F /* Repeating.swift in Sources */,
 				4D9361FD1C45D9AA0038951F /* Optional.swift in Sources */,
+				4DBBEFC41C4E4B0C0042E656 /* Text.swift in Sources */,
 				4D9361FF1C45D9AA0038951F /* ParseError.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
