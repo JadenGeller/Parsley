@@ -72,13 +72,3 @@ public func between<Token, LeftIgnore, RightIgnore, Result>(left: Parser<Token, 
 public func between<Token, Ignore, Result>(side: Parser<Token, Ignore>, parse parser: Parser<Token, Result>) -> Parser<Token, Result> {
     return between(side, side, parse: parser)
 }
-
-/**
-    Constructs a `Parser` that will run `parser` and return its result only if all the input
-    has been read after `parser` is run.
- 
-    - Parameter parser: The parser to run.
-*/
-public func terminating<Token, Result>(parser: Parser<Token, Result>) -> Parser<Token, Result> {
-    return dropRight(parser, end())
-}
