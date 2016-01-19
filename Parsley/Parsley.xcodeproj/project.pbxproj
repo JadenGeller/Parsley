@@ -157,13 +157,13 @@
 			children = (
 				4DBBEFC61C4E4B310042E656 /* Internals */,
 				4DBBEFC51C4E4B0F0042E656 /* Primitives */,
-				4D9361F11C45D9AA0038951F /* Cominators */,
+				4D9361F11C45D9AA0038951F /* Combinators */,
 			);
 			name = Sources;
 			path = ../../Sources;
 			sourceTree = "<group>";
 		};
-		4D9361F11C45D9AA0038951F /* Cominators */ = {
+		4D9361F11C45D9AA0038951F /* Combinators */ = {
 			isa = PBXGroup;
 			children = (
 				4D9361F21C45D9AA0038951F /* Backtracking.swift */,
@@ -173,7 +173,7 @@
 				4D9362041C45D9D00038951F /* Recursive.swift */,
 				4D9362051C45D9D00038951F /* Repeating.swift */,
 			);
-			name = Cominators;
+			name = Combinators;
 			sourceTree = "<group>";
 		};
 		4DBBEFB81C4E4AD00042E656 /* Products */ = {
