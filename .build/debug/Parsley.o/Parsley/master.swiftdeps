@@ -1,0 +1,16 @@
+version: "Apple Swift version 2.2-dev (LLVM 3ebdbb2c7e, Clang f66c5bb67b, Swift 17fe37d715)"
+options: "a5c581e0bd894f0fb5ace0a83deaf4b2"
+build_time: [508365676, 87215000]
+inputs:
+  "/Users/jadengeller/Documents/Packages/Parsley/Sources/Backtracking.swift": [507787945, 0]
+  "/Users/jadengeller/Documents/Packages/Parsley/Sources/Base.swift": [507787945, 0]
+  "/Users/jadengeller/Documents/Packages/Parsley/Sources/Coalescing.swift": [507787945, 0]
+  "/Users/jadengeller/Documents/Packages/Parsley/Sources/Optional.swift": [507787945, 0]
+  "/Users/jadengeller/Documents/Packages/Parsley/Sources/ParseError.swift": [507787945, 0]
+  "/Users/jadengeller/Documents/Packages/Parsley/Sources/Parser.swift": [507787945, 0]
+  "/Users/jadengeller/Documents/Packages/Parsley/Sources/ParseState.swift": [507787945, 0]
+  "/Users/jadengeller/Documents/Packages/Parsley/Sources/Recursive.swift": [507787945, 0]
+  "/Users/jadengeller/Documents/Packages/Parsley/Sources/Repeating.swift": [507787945, 0]
+  "/Users/jadengeller/Documents/Packages/Parsley/Sources/Sequencing.swift": [507787945, 0]
+  "/Users/jadengeller/Documents/Packages/Parsley/Sources/Text.swift": [507787945, 0]
+  "/Users/jadengeller/Documents/Packages/Parsley/Sources/Utilities.swift": [507787945, 0]

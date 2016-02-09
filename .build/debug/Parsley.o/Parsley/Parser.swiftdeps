@@ -1,0 +1,137 @@
+### Swift dependencies file v0 ###
+provides-top-level:
+- "ParserType"
+- "Parser"
+provides-nominal:
+- "P7Parsley10ParserType"
+- "V7Parsley6Parser"
+provides-member:
+- ["P7Parsley10ParserType", ""]
+- ["V7Parsley6Parser", ""]
+- ["P7Parsley10ParserType", "parse"]
+- ["P7Parsley10ParserType", "parse"]
+- ["P7Parsley10ParserType", "flatMap"]
+- ["P7Parsley10ParserType", "map"]
+- ["P7Parsley10ParserType", "replace"]
+- ["P7Parsley10ParserType", "discard"]
+- ["P7Parsley10ParserType", "peek"]
+- ["P7Parsley10ParserType", "require"]
+- ["V7Parsley6Parser", "lift"]
+provides-dynamic-lookup:
+depends-top-level:
+- !private "ParseError"
+- !private "ForkableGeneratorType"
+- "Bool"
+- !private "!"
+- "Parser"
+- "ParserType"
+- "ParseState"
+- !private "SequenceType"
+- !private "Array"
+- "StringLiteralType"
+depends-member:
+- !private ["Ps9AnyObject", "init"]
+- !private ["Sa", "Element"]
+- !private ["Ps23ArrayLiteralConvertible", "Element"]
+- !private ["Sb", "_getBuiltinLogicValue"]
+- !private ["Ps25BooleanLiteralConvertible", "_getBuiltinLogicValue"]
+- !private ["Ps11BooleanType", "_getBuiltinLogicValue"]
+- !private ["Ps14CollectionType", "Element"]
+- !private ["Ps28CustomDebugStringConvertible", "Element"]
+- !private ["Ps23CustomStringConvertible", "Element"]
+- !private ["Ps23CustomStringConvertible", "_getBuiltinLogicValue"]
+- !private ["Ps9Equatable", "_getBuiltinLogicValue"]
+- !private ["Ps9ErrorType", "UnableToMatch"]
+- !private ["P5Spork21ForkableGeneratorType", "Element"]
+- !private ["Ps13GeneratorType", "Element"]
+- !private ["Ps8Hashable", "_getBuiltinLogicValue"]
+- !private ["Ps9Indexable", "Element"]
+- !private ["Ps21MutableCollectionType", "Element"]
+- !private ["Ps16MutableIndexable", "Element"]
+- !private ["Ps16MutableSliceable", "Element"]
+- !private ["O7Parsley10ParseError", "UnableToMatch"]
+- !private ["O7Parsley10ParseError", "deinit"]
+- ["C7Parsley10ParseState", "deinit"]
+- !private ["C7Parsley10ParseState", "init"]
+- ["V7Parsley6Parser", "ParseState"]
+- ["V7Parsley6Parser", "Parser"]
+- ["V7Parsley6Parser", "Result"]
+- ["V7Parsley6Parser", "Token"]
+- ["V7Parsley6Parser", "deinit"]
+- ["V7Parsley6Parser", "implementation"]
+- ["V7Parsley6Parser", "init"]
+- ["V7Parsley6Parser", "lift"]
+- !private ["V7Parsley6Parser", "map"]
+- ["V7Parsley6Parser", "parse"]
+- ["P7Parsley10ParserType", "Bool"]
+- !private ["P7Parsley10ParserType", "ForkableGeneratorType"]
+- !private ["P7Parsley10ParserType", "ParseError"]
+- ["P7Parsley10ParserType", "ParseState"]
+- ["P7Parsley10ParserType", "Parser"]
+- ["P7Parsley10ParserType", "Result"]
+- !private ["P7Parsley10ParserType", "SequenceType"]
+- ["P7Parsley10ParserType", "Token"]
+- ["P7Parsley10ParserType", "discard"]
+- ["P7Parsley10ParserType", "flatMap"]
+- !private ["P7Parsley10ParserType", "implementation"]
+- !private ["P7Parsley10ParserType", "init"]
+- ["P7Parsley10ParserType", "map"]
+- ["P7Parsley10ParserType", "parse"]
+- ["P7Parsley10ParserType", "peek"]
+- ["P7Parsley10ParserType", "replace"]
+- ["P7Parsley10ParserType", "require"]
+- ["P7Parsley10ParserType", ""]
+- !private ["Ps30RangeReplaceableCollectionType", "Element"]
+- !private ["Ps12SequenceType", "Element"]
+- !private ["Ps12SequenceType", "Generator"]
+- !private ["Ps10_ArrayType", "Element"]
+- !private ["Ps33_BuiltinBooleanLiteralConvertible", "_getBuiltinLogicValue"]
+- !private ["Ps24_DestructorSafeContainer", "Element"]
+- !private ["Ps12_Reflectable", "Element"]
+- !private ["Ps12_Reflectable", "_getBuiltinLogicValue"]
+depends-nominal:
+- !private "Ps9AnyObject"
+- !private "Sa"
+- !private "Ps23ArrayLiteralConvertible"
+- !private "Sb"
+- !private "Ps25BooleanLiteralConvertible"
+- !private "Ps11BooleanType"
+- !private "Ps14CollectionType"
+- !private "Ps28CustomDebugStringConvertible"
+- !private "Ps23CustomStringConvertible"
+- !private "Ps9Equatable"
+- !private "Ps9ErrorType"
+- !private "P5Spork21ForkableGeneratorType"
+- !private "Ps13GeneratorType"
+- !private "Ps8Hashable"
+- !private "Ps9Indexable"
+- !private "Ps21MutableCollectionType"
+- !private "Ps16MutableIndexable"
+- !private "Ps16MutableSliceable"
+- !private "O7Parsley10ParseError"
+- "C7Parsley10ParseState"
+- "V7Parsley6Parser"
+- "P7Parsley10ParserType"
+- !private "Ps30RangeReplaceableCollectionType"
+- !private "Ps12SequenceType"
+- !private "Ps10_ArrayType"
+- !private "Ps33_BuiltinBooleanLiteralConvertible"
+- !private "Ps24_DestructorSafeContainer"
+- !private "Ps12_Reflectable"
+depends-dynamic-lookup:
+depends-external:
+- "/Library/Developer/Toolchains/swift-2.2-SNAPSHOT-2015-12-22-a.xctoolchain/usr/lib/swift/macosx/x86_64/Swift.swiftmodule"
+- "/Library/Developer/Toolchains/swift-2.2-SNAPSHOT-2015-12-22-a.xctoolchain/usr/lib/swift/shims/UnicodeShims.h"
+- "/Library/Developer/Toolchains/swift-2.2-SNAPSHOT-2015-12-22-a.xctoolchain/usr/lib/swift/shims/RuntimeStubs.h"
+- "/Library/Developer/Toolchains/swift-2.2-SNAPSHOT-2015-12-22-a.xctoolchain/usr/lib/swift/shims/SwiftStdint.h"
+- "/Library/Developer/Toolchains/swift-2.2-SNAPSHOT-2015-12-22-a.xctoolchain/usr/lib/swift/shims/SwiftStddef.h"
+- "/Library/Developer/Toolchains/swift-2.2-SNAPSHOT-2015-12-22-a.xctoolchain/usr/lib/swift/shims/RuntimeShims.h"
+- "/Library/Developer/Toolchains/swift-2.2-SNAPSHOT-2015-12-22-a.xctoolchain/usr/lib/swift/shims/LibcShims.h"
+- "/Library/Developer/Toolchains/swift-2.2-SNAPSHOT-2015-12-22-a.xctoolchain/usr/lib/swift/shims/RefCount.h"
+- "/Library/Developer/Toolchains/swift-2.2-SNAPSHOT-2015-12-22-a.xctoolchain/usr/lib/swift/shims/HeapObject.h"
+- "/Library/Developer/Toolchains/swift-2.2-SNAPSHOT-2015-12-22-a.xctoolchain/usr/lib/swift/shims/GlobalObjects.h"
+- "/Library/Developer/Toolchains/swift-2.2-SNAPSHOT-2015-12-22-a.xctoolchain/usr/lib/swift/shims/FoundationShims.h"
+- "/Library/Developer/Toolchains/swift-2.2-SNAPSHOT-2015-12-22-a.xctoolchain/usr/lib/swift/shims/CoreFoundationShims.h"
+- "/Library/Developer/Toolchains/swift-2.2-SNAPSHOT-2015-12-22-a.xctoolchain/usr/lib/swift/shims/module.map"
+- "/Users/jadengeller/Documents/Packages/Parsley/.build/debug/Spork.swiftmodule"
+interface-hash: "41e1b964e3277823817adae1489bfde5"

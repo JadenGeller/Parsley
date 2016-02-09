@@ -1,0 +1,70 @@
+### Swift dependencies file v0 ###
+provides-top-level:
+- "ParseError"
+provides-nominal:
+- "O7Parsley10ParseError"
+provides-member:
+- ["O7Parsley10ParseError", ""]
+- ["P7Parsley10ParserType", ""]
+- ["P7Parsley10ParserType", "recover"]
+- ["P7Parsley10ParserType", "mapError"]
+- ["P7Parsley10ParserType", "withError"]
+provides-dynamic-lookup:
+depends-top-level:
+- "ParserType"
+- "String"
+- "ErrorType"
+- "Parser"
+- !private "FloatLiteralType"
+- !private "IntegerLiteralType"
+- "ParseError"
+depends-member:
+- !private ["Ps9ErrorType", "UnableToMatch"]
+- ["Ps9ErrorType", "_code"]
+- ["Ps9ErrorType", "_domain"]
+- ["Ps9ErrorType", ""]
+- ["O7Parsley10ParseError", "EndOfSequence"]
+- ["O7Parsley10ParseError", "String"]
+- ["O7Parsley10ParseError", "UnableToMatch"]
+- ["O7Parsley10ParseError", "_code"]
+- ["O7Parsley10ParseError", "_domain"]
+- ["O7Parsley10ParseError", "deinit"]
+- !private ["C7Parsley10ParseState", "deinit"]
+- !private ["V7Parsley6Parser", "Result"]
+- !private ["V7Parsley6Parser", "Token"]
+- !private ["V7Parsley6Parser", "deinit"]
+- !private ["V7Parsley6Parser", "init"]
+- !private ["V7Parsley6Parser", "parse"]
+- ["P7Parsley10ParserType", "ParseError"]
+- ["P7Parsley10ParserType", "Parser"]
+- ["P7Parsley10ParserType", "Result"]
+- ["P7Parsley10ParserType", "String"]
+- ["P7Parsley10ParserType", "Token"]
+- !private ["P7Parsley10ParserType", "init"]
+- ["P7Parsley10ParserType", "mapError"]
+- !private ["P7Parsley10ParserType", "parse"]
+- ["P7Parsley10ParserType", "recover"]
+- ["P7Parsley10ParserType", "withError"]
+depends-nominal:
+- "Ps9ErrorType"
+- "O7Parsley10ParseError"
+- !private "C7Parsley10ParseState"
+- !private "V7Parsley6Parser"
+- "P7Parsley10ParserType"
+depends-dynamic-lookup:
+depends-external:
+- "/Library/Developer/Toolchains/swift-2.2-SNAPSHOT-2015-12-22-a.xctoolchain/usr/lib/swift/macosx/x86_64/Swift.swiftmodule"
+- "/Library/Developer/Toolchains/swift-2.2-SNAPSHOT-2015-12-22-a.xctoolchain/usr/lib/swift/shims/UnicodeShims.h"
+- "/Library/Developer/Toolchains/swift-2.2-SNAPSHOT-2015-12-22-a.xctoolchain/usr/lib/swift/shims/RuntimeStubs.h"
+- "/Library/Developer/Toolchains/swift-2.2-SNAPSHOT-2015-12-22-a.xctoolchain/usr/lib/swift/shims/SwiftStdint.h"
+- "/Library/Developer/Toolchains/swift-2.2-SNAPSHOT-2015-12-22-a.xctoolchain/usr/lib/swift/shims/SwiftStddef.h"
+- "/Library/Developer/Toolchains/swift-2.2-SNAPSHOT-2015-12-22-a.xctoolchain/usr/lib/swift/shims/RuntimeShims.h"
+- "/Library/Developer/Toolchains/swift-2.2-SNAPSHOT-2015-12-22-a.xctoolchain/usr/lib/swift/shims/LibcShims.h"
+- "/Library/Developer/Toolchains/swift-2.2-SNAPSHOT-2015-12-22-a.xctoolchain/usr/lib/swift/shims/RefCount.h"
+- "/Library/Developer/Toolchains/swift-2.2-SNAPSHOT-2015-12-22-a.xctoolchain/usr/lib/swift/shims/HeapObject.h"
+- "/Library/Developer/Toolchains/swift-2.2-SNAPSHOT-2015-12-22-a.xctoolchain/usr/lib/swift/shims/GlobalObjects.h"
+- "/Library/Developer/Toolchains/swift-2.2-SNAPSHOT-2015-12-22-a.xctoolchain/usr/lib/swift/shims/FoundationShims.h"
+- "/Library/Developer/Toolchains/swift-2.2-SNAPSHOT-2015-12-22-a.xctoolchain/usr/lib/swift/shims/CoreFoundationShims.h"
+- "/Library/Developer/Toolchains/swift-2.2-SNAPSHOT-2015-12-22-a.xctoolchain/usr/lib/swift/shims/module.map"
+- "/Users/jadengeller/Documents/Packages/Parsley/.build/debug/Spork.swiftmodule"
+interface-hash: "437386e884a0bec9846a8170c79780e0"

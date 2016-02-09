@@ -1,0 +1,29 @@
+client:
+  name: swift-build
+
+tools: {}
+
+targets:
+  "": [<Spork>]
+  Spork: [<Spork>]
+
+commands:
+  <Spork-swiftc>:
+    tool: swift-compiler
+    executable: "/Library/Developer/Toolchains/swift-2.2-SNAPSHOT-2015-12-22-a.xctoolchain/usr/bin/swiftc"
+    inputs: ["/Users/jadengeller/Documents/Packages/Parsley/Packages/Spork-1.1.0/Sources/AnyForkableGenerator.swift","/Users/jadengeller/Documents/Packages/Parsley/Packages/Spork-1.1.0/Sources/BufferingGenerator.swift","/Users/jadengeller/Documents/Packages/Parsley/Packages/Spork-1.1.0/Sources/ForkableGeneratorType.swift","/Users/jadengeller/Documents/Packages/Parsley/Packages/Spork-1.1.0/Sources/ValueCopyGenerator.swift"]
+    outputs: ["<Spork-swiftc>","/Users/jadengeller/Documents/Packages/Parsley/.build/debug/Spork.swiftmodule","/Users/jadengeller/Documents/Packages/Parsley/.build/debug/Spork.o/Sources/AnyForkableGenerator.swift.o","/Users/jadengeller/Documents/Packages/Parsley/.build/debug/Spork.o/Sources/BufferingGenerator.swift.o","/Users/jadengeller/Documents/Packages/Parsley/.build/debug/Spork.o/Sources/ForkableGeneratorType.swift.o","/Users/jadengeller/Documents/Packages/Parsley/.build/debug/Spork.o/Sources/ValueCopyGenerator.swift.o"]
+    module-name: "Spork"
+    module-output-path: "/Users/jadengeller/Documents/Packages/Parsley/.build/debug/Spork.swiftmodule"
+    is-library: true
+    sources: ["/Users/jadengeller/Documents/Packages/Parsley/Packages/Spork-1.1.0/Sources/AnyForkableGenerator.swift","/Users/jadengeller/Documents/Packages/Parsley/Packages/Spork-1.1.0/Sources/BufferingGenerator.swift","/Users/jadengeller/Documents/Packages/Parsley/Packages/Spork-1.1.0/Sources/ForkableGeneratorType.swift","/Users/jadengeller/Documents/Packages/Parsley/Packages/Spork-1.1.0/Sources/ValueCopyGenerator.swift"]
+    objects: ["/Users/jadengeller/Documents/Packages/Parsley/.build/debug/Spork.o/Sources/AnyForkableGenerator.swift.o","/Users/jadengeller/Documents/Packages/Parsley/.build/debug/Spork.o/Sources/BufferingGenerator.swift.o","/Users/jadengeller/Documents/Packages/Parsley/.build/debug/Spork.o/Sources/ForkableGeneratorType.swift.o","/Users/jadengeller/Documents/Packages/Parsley/.build/debug/Spork.o/Sources/ValueCopyGenerator.swift.o"]
+    import-paths: ["/Users/jadengeller/Documents/Packages/Parsley/.build/debug"]
+    temps-path: "/Users/jadengeller/Documents/Packages/Parsley/.build/debug/Spork.o/Spork"
+    other-args: ["-j8","-Onone","-g","-target","x86_64-apple-macosx10.10","-enable-testing","-sdk","/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.11.sdk","-I","/usr/local/include"]
+  <Spork>:
+    tool: shell
+    inputs: ["<Spork-swiftc>","/Users/jadengeller/Documents/Packages/Parsley/.build/debug/Spork.o/Sources/AnyForkableGenerator.swift.o","/Users/jadengeller/Documents/Packages/Parsley/.build/debug/Spork.o/Sources/BufferingGenerator.swift.o","/Users/jadengeller/Documents/Packages/Parsley/.build/debug/Spork.o/Sources/ForkableGeneratorType.swift.o","/Users/jadengeller/Documents/Packages/Parsley/.build/debug/Spork.o/Sources/ValueCopyGenerator.swift.o"]
+    outputs: ["<Spork>","/Users/jadengeller/Documents/Packages/Parsley/.build/debug/Spork.a"]
+    args: ["/bin/sh","-c","rm -f '/Users/jadengeller/Documents/Packages/Parsley/.build/debug/Spork.a'; ar cr '/Users/jadengeller/Documents/Packages/Parsley/.build/debug/Spork.a' '/Users/jadengeller/Documents/Packages/Parsley/.build/debug/Spork.o/Sources/AnyForkableGenerator.swift.o' '/Users/jadengeller/Documents/Packages/Parsley/.build/debug/Spork.o/Sources/BufferingGenerator.swift.o' '/Users/jadengeller/Documents/Packages/Parsley/.build/debug/Spork.o/Sources/ForkableGeneratorType.swift.o' '/Users/jadengeller/Documents/Packages/Parsley/.build/debug/Spork.o/Sources/ValueCopyGenerator.swift.o'"]
+    description: "Linking Library:  .build/debug/Spork.a"

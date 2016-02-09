@@ -1,0 +1,116 @@
+### Swift dependencies file v0 ###
+provides-top-level:
+- "ParseState"
+- "ParseStateCheckpoint"
+provides-nominal:
+- "C7Parsley10ParseState"
+- "V7Parsley20ParseStateCheckpoint"
+provides-member:
+- ["C7Parsley10ParseState", ""]
+- ["V7Parsley20ParseStateCheckpoint", ""]
+- ["C7Parsley10ParseState", "init"]
+- ["C7Parsley10ParseState", "init"]
+- ["C7Parsley10ParseState", "read"]
+- ["C7Parsley10ParseState", "checkpoint"]
+- ["C7Parsley10ParseState", "restore"]
+provides-dynamic-lookup:
+depends-top-level:
+- "ParseState"
+- !private "SequenceType"
+- "AnyForkableGenerator"
+- "ParseStateCheckpoint"
+- !private "ForkableGeneratorType"
+- !private "ParseError"
+- !private "BufferingGenerator"
+depends-member:
+- !private ["C5Spork20AnyForkableGenerator", "Element"]
+- !private ["C5Spork20AnyForkableGenerator", "deinit"]
+- !private ["C5Spork20AnyForkableGenerator", "fork"]
+- !private ["C5Spork20AnyForkableGenerator", "init"]
+- !private ["C5Spork20AnyForkableGenerator", "next"]
+- !private ["Ps9AnyObject", "AnyForkableGenerator"]
+- !private ["Ps9AnyObject", "BufferingGenerator"]
+- !private ["Ps9AnyObject", "Element"]
+- !private ["Ps9AnyObject", "ParseError"]
+- !private ["Ps9AnyObject", "ParseStateCheckpoint"]
+- !private ["Ps9AnyObject", "backing"]
+- !private ["Ps9AnyObject", "fork"]
+- !private ["Ps9AnyObject", "init"]
+- !private ["Ps9AnyObject", "next"]
+- ["Ps9AnyObject", ""]
+- !private ["C5Spork18BufferingGenerator", "Element"]
+- !private ["C5Spork18BufferingGenerator", "init"]
+- !private ["Ps10Comparable", "Element"]
+- !private ["Ps10Comparable", "init"]
+- ["Ps28CustomDebugStringConvertible", "Some"]
+- !private ["Ps9Equatable", "Element"]
+- !private ["Ps9Equatable", "init"]
+- !private ["Ps9ErrorType", "EndOfSequence"]
+- !private ["P5Spork21ForkableGeneratorType", "Element"]
+- !private ["P5Spork21ForkableGeneratorType", "fork"]
+- !private ["P5Spork21ForkableGeneratorType", "init"]
+- !private ["P5Spork21ForkableGeneratorType", "next"]
+- !private ["Ps13GeneratorType", "Element"]
+- !private ["Ps13GeneratorType", "fork"]
+- !private ["Ps13GeneratorType", "init"]
+- !private ["Ps13GeneratorType", "next"]
+- ["Ps21NilLiteralConvertible", "Some"]
+- ["Sq", "Some"]
+- ["P7Parsley12OptionalType", "Some"]
+- !private ["O7Parsley10ParseError", "EndOfSequence"]
+- !private ["O7Parsley10ParseError", "deinit"]
+- ["C7Parsley10ParseState", "AnyForkableGenerator"]
+- !private ["C7Parsley10ParseState", "BufferingGenerator"]
+- !private ["C7Parsley10ParseState", "ForkableGeneratorType"]
+- !private ["C7Parsley10ParseState", "ParseError"]
+- ["C7Parsley10ParseState", "ParseStateCheckpoint"]
+- !private ["C7Parsley10ParseState", "SequenceType"]
+- ["C7Parsley10ParseState", "Token"]
+- !private ["C7Parsley10ParseState", "backing"]
+- ["C7Parsley10ParseState", "checkpoint"]
+- ["C7Parsley10ParseState", "deinit"]
+- ["C7Parsley10ParseState", "init"]
+- ["C7Parsley10ParseState", "read"]
+- ["C7Parsley10ParseState", "restore"]
+- ["V7Parsley20ParseStateCheckpoint", "AnyForkableGenerator"]
+- ["V7Parsley20ParseStateCheckpoint", "Token"]
+- !private ["V7Parsley20ParseStateCheckpoint", "backing"]
+- !private ["V7Parsley20ParseStateCheckpoint", "init"]
+- !private ["Ps12SequenceType", "Generator"]
+- !private ["Ps12SequenceType", "generate"]
+- ["Ps12_Reflectable", "Some"]
+depends-nominal:
+- !private "C5Spork20AnyForkableGenerator"
+- "Ps9AnyObject"
+- !private "C5Spork18BufferingGenerator"
+- !private "Ps10Comparable"
+- "Ps28CustomDebugStringConvertible"
+- !private "Ps9Equatable"
+- !private "Ps9ErrorType"
+- !private "P5Spork21ForkableGeneratorType"
+- !private "Ps13GeneratorType"
+- "Ps21NilLiteralConvertible"
+- "Sq"
+- "P7Parsley12OptionalType"
+- !private "O7Parsley10ParseError"
+- "C7Parsley10ParseState"
+- "V7Parsley20ParseStateCheckpoint"
+- !private "Ps12SequenceType"
+- "Ps12_Reflectable"
+depends-dynamic-lookup:
+depends-external:
+- "/Library/Developer/Toolchains/swift-2.2-SNAPSHOT-2015-12-22-a.xctoolchain/usr/lib/swift/macosx/x86_64/Swift.swiftmodule"
+- "/Library/Developer/Toolchains/swift-2.2-SNAPSHOT-2015-12-22-a.xctoolchain/usr/lib/swift/shims/UnicodeShims.h"
+- "/Library/Developer/Toolchains/swift-2.2-SNAPSHOT-2015-12-22-a.xctoolchain/usr/lib/swift/shims/RuntimeStubs.h"
+- "/Library/Developer/Toolchains/swift-2.2-SNAPSHOT-2015-12-22-a.xctoolchain/usr/lib/swift/shims/SwiftStdint.h"
+- "/Library/Developer/Toolchains/swift-2.2-SNAPSHOT-2015-12-22-a.xctoolchain/usr/lib/swift/shims/SwiftStddef.h"
+- "/Library/Developer/Toolchains/swift-2.2-SNAPSHOT-2015-12-22-a.xctoolchain/usr/lib/swift/shims/RuntimeShims.h"
+- "/Library/Developer/Toolchains/swift-2.2-SNAPSHOT-2015-12-22-a.xctoolchain/usr/lib/swift/shims/LibcShims.h"
+- "/Library/Developer/Toolchains/swift-2.2-SNAPSHOT-2015-12-22-a.xctoolchain/usr/lib/swift/shims/RefCount.h"
+- "/Library/Developer/Toolchains/swift-2.2-SNAPSHOT-2015-12-22-a.xctoolchain/usr/lib/swift/shims/HeapObject.h"
+- "/Library/Developer/Toolchains/swift-2.2-SNAPSHOT-2015-12-22-a.xctoolchain/usr/lib/swift/shims/GlobalObjects.h"
+- "/Library/Developer/Toolchains/swift-2.2-SNAPSHOT-2015-12-22-a.xctoolchain/usr/lib/swift/shims/FoundationShims.h"
+- "/Library/Developer/Toolchains/swift-2.2-SNAPSHOT-2015-12-22-a.xctoolchain/usr/lib/swift/shims/CoreFoundationShims.h"
+- "/Library/Developer/Toolchains/swift-2.2-SNAPSHOT-2015-12-22-a.xctoolchain/usr/lib/swift/shims/module.map"
+- "/Users/jadengeller/Documents/Packages/Parsley/.build/debug/Spork.swiftmodule"
+interface-hash: "df8bba2c33f57651c23d59ed6d6165e9"

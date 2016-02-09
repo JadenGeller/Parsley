@@ -1,0 +1,77 @@
+{
+  "": {
+    "swift-dependencies": "/Users/jadengeller/Documents/Packages/Parsley/.build/debug/Parsley.o/Parsley/master.swiftdeps"
+  },
+  "/Users/jadengeller/Documents/Packages/Parsley/Sources/Backtracking.swift": {
+    "dependencies": "/Users/jadengeller/Documents/Packages/Parsley/.build/debug/Parsley.o/Parsley/Backtracking.d",
+    "object": "/Users/jadengeller/Documents/Packages/Parsley/.build/debug/Parsley.o/Sources/Backtracking.swift.o",
+    "swiftmodule": "/Users/jadengeller/Documents/Packages/Parsley/.build/debug/Parsley.o/Parsley/Backtracking~partial.swiftmodule",
+    "swift-dependencies": "/Users/jadengeller/Documents/Packages/Parsley/.build/debug/Parsley.o/Parsley/Backtracking.swiftdeps"
+  },
+  "/Users/jadengeller/Documents/Packages/Parsley/Sources/Base.swift": {
+    "dependencies": "/Users/jadengeller/Documents/Packages/Parsley/.build/debug/Parsley.o/Parsley/Base.d",
+    "object": "/Users/jadengeller/Documents/Packages/Parsley/.build/debug/Parsley.o/Sources/Base.swift.o",
+    "swiftmodule": "/Users/jadengeller/Documents/Packages/Parsley/.build/debug/Parsley.o/Parsley/Base~partial.swiftmodule",
+    "swift-dependencies": "/Users/jadengeller/Documents/Packages/Parsley/.build/debug/Parsley.o/Parsley/Base.swiftdeps"
+  },
+  "/Users/jadengeller/Documents/Packages/Parsley/Sources/Coalescing.swift": {
+    "dependencies": "/Users/jadengeller/Documents/Packages/Parsley/.build/debug/Parsley.o/Parsley/Coalescing.d",
+    "object": "/Users/jadengeller/Documents/Packages/Parsley/.build/debug/Parsley.o/Sources/Coalescing.swift.o",
+    "swiftmodule": "/Users/jadengeller/Documents/Packages/Parsley/.build/debug/Parsley.o/Parsley/Coalescing~partial.swiftmodule",
+    "swift-dependencies": "/Users/jadengeller/Documents/Packages/Parsley/.build/debug/Parsley.o/Parsley/Coalescing.swiftdeps"
+  },
+  "/Users/jadengeller/Documents/Packages/Parsley/Sources/Optional.swift": {
+    "dependencies": "/Users/jadengeller/Documents/Packages/Parsley/.build/debug/Parsley.o/Parsley/Optional.d",
+    "object": "/Users/jadengeller/Documents/Packages/Parsley/.build/debug/Parsley.o/Sources/Optional.swift.o",
+    "swiftmodule": "/Users/jadengeller/Documents/Packages/Parsley/.build/debug/Parsley.o/Parsley/Optional~partial.swiftmodule",
+    "swift-dependencies": "/Users/jadengeller/Documents/Packages/Parsley/.build/debug/Parsley.o/Parsley/Optional.swiftdeps"
+  },
+  "/Users/jadengeller/Documents/Packages/Parsley/Sources/ParseError.swift": {
+    "dependencies": "/Users/jadengeller/Documents/Packages/Parsley/.build/debug/Parsley.o/Parsley/ParseError.d",
+    "object": "/Users/jadengeller/Documents/Packages/Parsley/.build/debug/Parsley.o/Sources/ParseError.swift.o",
+    "swiftmodule": "/Users/jadengeller/Documents/Packages/Parsley/.build/debug/Parsley.o/Parsley/ParseError~partial.swiftmodule",
+    "swift-dependencies": "/Users/jadengeller/Documents/Packages/Parsley/.build/debug/Parsley.o/Parsley/ParseError.swiftdeps"
+  },
+  "/Users/jadengeller/Documents/Packages/Parsley/Sources/Parser.swift": {
+    "dependencies": "/Users/jadengeller/Documents/Packages/Parsley/.build/debug/Parsley.o/Parsley/Parser.d",
+    "object": "/Users/jadengeller/Documents/Packages/Parsley/.build/debug/Parsley.o/Sources/Parser.swift.o",
+    "swiftmodule": "/Users/jadengeller/Documents/Packages/Parsley/.build/debug/Parsley.o/Parsley/Parser~partial.swiftmodule",
+    "swift-dependencies": "/Users/jadengeller/Documents/Packages/Parsley/.build/debug/Parsley.o/Parsley/Parser.swiftdeps"
+  },
+  "/Users/jadengeller/Documents/Packages/Parsley/Sources/ParseState.swift": {
+    "dependencies": "/Users/jadengeller/Documents/Packages/Parsley/.build/debug/Parsley.o/Parsley/ParseState.d",
+    "object": "/Users/jadengeller/Documents/Packages/Parsley/.build/debug/Parsley.o/Sources/ParseState.swift.o",
+    "swiftmodule": "/Users/jadengeller/Documents/Packages/Parsley/.build/debug/Parsley.o/Parsley/ParseState~partial.swiftmodule",
+    "swift-dependencies": "/Users/jadengeller/Documents/Packages/Parsley/.build/debug/Parsley.o/Parsley/ParseState.swiftdeps"
+  },
+  "/Users/jadengeller/Documents/Packages/Parsley/Sources/Recursive.swift": {
+    "dependencies": "/Users/jadengeller/Documents/Packages/Parsley/.build/debug/Parsley.o/Parsley/Recursive.d",
+    "object": "/Users/jadengeller/Documents/Packages/Parsley/.build/debug/Parsley.o/Sources/Recursive.swift.o",
+    "swiftmodule": "/Users/jadengeller/Documents/Packages/Parsley/.build/debug/Parsley.o/Parsley/Recursive~partial.swiftmodule",
+    "swift-dependencies": "/Users/jadengeller/Documents/Packages/Parsley/.build/debug/Parsley.o/Parsley/Recursive.swiftdeps"
+  },
+  "/Users/jadengeller/Documents/Packages/Parsley/Sources/Repeating.swift": {
+    "dependencies": "/Users/jadengeller/Documents/Packages/Parsley/.build/debug/Parsley.o/Parsley/Repeating.d",
+    "object": "/Users/jadengeller/Documents/Packages/Parsley/.build/debug/Parsley.o/Sources/Repeating.swift.o",
+    "swiftmodule": "/Users/jadengeller/Documents/Packages/Parsley/.build/debug/Parsley.o/Parsley/Repeating~partial.swiftmodule",
+    "swift-dependencies": "/Users/jadengeller/Documents/Packages/Parsley/.build/debug/Parsley.o/Parsley/Repeating.swiftdeps"
+  },
+  "/Users/jadengeller/Documents/Packages/Parsley/Sources/Sequencing.swift": {
+    "dependencies": "/Users/jadengeller/Documents/Packages/Parsley/.build/debug/Parsley.o/Parsley/Sequencing.d",
+    "object": "/Users/jadengeller/Documents/Packages/Parsley/.build/debug/Parsley.o/Sources/Sequencing.swift.o",
+    "swiftmodule": "/Users/jadengeller/Documents/Packages/Parsley/.build/debug/Parsley.o/Parsley/Sequencing~partial.swiftmodule",
+    "swift-dependencies": "/Users/jadengeller/Documents/Packages/Parsley/.build/debug/Parsley.o/Parsley/Sequencing.swiftdeps"
+  },
+  "/Users/jadengeller/Documents/Packages/Parsley/Sources/Text.swift": {
+    "dependencies": "/Users/jadengeller/Documents/Packages/Parsley/.build/debug/Parsley.o/Parsley/Text.d",
+    "object": "/Users/jadengeller/Documents/Packages/Parsley/.build/debug/Parsley.o/Sources/Text.swift.o",
+    "swiftmodule": "/Users/jadengeller/Documents/Packages/Parsley/.build/debug/Parsley.o/Parsley/Text~partial.swiftmodule",
+    "swift-dependencies": "/Users/jadengeller/Documents/Packages/Parsley/.build/debug/Parsley.o/Parsley/Text.swiftdeps"
+  },
+  "/Users/jadengeller/Documents/Packages/Parsley/Sources/Utilities.swift": {
+    "dependencies": "/Users/jadengeller/Documents/Packages/Parsley/.build/debug/Parsley.o/Parsley/Utilities.d",
+    "object": "/Users/jadengeller/Documents/Packages/Parsley/.build/debug/Parsley.o/Sources/Utilities.swift.o",
+    "swiftmodule": "/Users/jadengeller/Documents/Packages/Parsley/.build/debug/Parsley.o/Parsley/Utilities~partial.swiftmodule",
+    "swift-dependencies": "/Users/jadengeller/Documents/Packages/Parsley/.build/debug/Parsley.o/Parsley/Utilities.swiftdeps"
+  }
+}

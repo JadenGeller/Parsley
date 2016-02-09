@@ -1,0 +1,29 @@
+{
+  "": {
+    "swift-dependencies": "/Users/jadengeller/Documents/Packages/Parsley/.build/debug/Spork.o/Spork/master.swiftdeps"
+  },
+  "/Users/jadengeller/Documents/Packages/Parsley/Packages/Spork-1.1.0/Sources/AnyForkableGenerator.swift": {
+    "dependencies": "/Users/jadengeller/Documents/Packages/Parsley/.build/debug/Spork.o/Spork/AnyForkableGenerator.d",
+    "object": "/Users/jadengeller/Documents/Packages/Parsley/.build/debug/Spork.o/Sources/AnyForkableGenerator.swift.o",
+    "swiftmodule": "/Users/jadengeller/Documents/Packages/Parsley/.build/debug/Spork.o/Spork/AnyForkableGenerator~partial.swiftmodule",
+    "swift-dependencies": "/Users/jadengeller/Documents/Packages/Parsley/.build/debug/Spork.o/Spork/AnyForkableGenerator.swiftdeps"
+  },
+  "/Users/jadengeller/Documents/Packages/Parsley/Packages/Spork-1.1.0/Sources/BufferingGenerator.swift": {
+    "dependencies": "/Users/jadengeller/Documents/Packages/Parsley/.build/debug/Spork.o/Spork/BufferingGenerator.d",
+    "object": "/Users/jadengeller/Documents/Packages/Parsley/.build/debug/Spork.o/Sources/BufferingGenerator.swift.o",
+    "swiftmodule": "/Users/jadengeller/Documents/Packages/Parsley/.build/debug/Spork.o/Spork/BufferingGenerator~partial.swiftmodule",
+    "swift-dependencies": "/Users/jadengeller/Documents/Packages/Parsley/.build/debug/Spork.o/Spork/BufferingGenerator.swiftdeps"
+  },
+  "/Users/jadengeller/Documents/Packages/Parsley/Packages/Spork-1.1.0/Sources/ForkableGeneratorType.swift": {
+    "dependencies": "/Users/jadengeller/Documents/Packages/Parsley/.build/debug/Spork.o/Spork/ForkableGeneratorType.d",
+    "object": "/Users/jadengeller/Documents/Packages/Parsley/.build/debug/Spork.o/Sources/ForkableGeneratorType.swift.o",
+    "swiftmodule": "/Users/jadengeller/Documents/Packages/Parsley/.build/debug/Spork.o/Spork/ForkableGeneratorType~partial.swiftmodule",
+    "swift-dependencies": "/Users/jadengeller/Documents/Packages/Parsley/.build/debug/Spork.o/Spork/ForkableGeneratorType.swiftdeps"
+  },
+  "/Users/jadengeller/Documents/Packages/Parsley/Packages/Spork-1.1.0/Sources/ValueCopyGenerator.swift": {
+    "dependencies": "/Users/jadengeller/Documents/Packages/Parsley/.build/debug/Spork.o/Spork/ValueCopyGenerator.d",
+    "object": "/Users/jadengeller/Documents/Packages/Parsley/.build/debug/Spork.o/Sources/ValueCopyGenerator.swift.o",
+    "swiftmodule": "/Users/jadengeller/Documents/Packages/Parsley/.build/debug/Spork.o/Spork/ValueCopyGenerator~partial.swiftmodule",
+    "swift-dependencies": "/Users/jadengeller/Documents/Packages/Parsley/.build/debug/Spork.o/Spork/ValueCopyGenerator.swiftdeps"
+  }
+}

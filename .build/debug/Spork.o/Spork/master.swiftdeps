@@ -1,0 +1,8 @@
+version: "Apple Swift version 2.2-dev (LLVM 3ebdbb2c7e, Clang f66c5bb67b, Swift 17fe37d715)"
+options: "bf5bfd531c634c9489f3b9f5561daafe"
+build_time: [508365675, 871850000]
+inputs:
+  "/Users/jadengeller/Documents/Packages/Parsley/Packages/Spork-1.1.0/Sources/AnyForkableGenerator.swift": [508365673, 0]
+  "/Users/jadengeller/Documents/Packages/Parsley/Packages/Spork-1.1.0/Sources/BufferingGenerator.swift": [508365673, 0]
+  "/Users/jadengeller/Documents/Packages/Parsley/Packages/Spork-1.1.0/Sources/ForkableGeneratorType.swift": [508365673, 0]
+  "/Users/jadengeller/Documents/Packages/Parsley/Packages/Spork-1.1.0/Sources/ValueCopyGenerator.swift": [508365673, 0]
