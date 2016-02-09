@@ -8,7 +8,8 @@
 
 import Spork
 
-// Exists since extensions cannot make concrete type non-generic
+/// A protocol to which `Parser` conforms. Exists as a workaround to the current 
+/// Swift limitation that extensions cannot make concrete type non-generic.
 public protocol ParserType {
     /// The type whose sequence is parsed by the parser.
     typealias Token
@@ -19,9 +20,11 @@ public protocol ParserType {
     @warn_unused_result func parse(state: ParseState<Token>) throws -> Result
 }
 
+/// A parser whose `parse` function mutates a `ParseState<Token>` and returns a `Result`.
 public struct Parser<Token, Result>: ParserType {
     internal let implementation: ParseState<Token> throws -> Result
     
+    /// Construct a `Parser` that will run `implementation`.
     public init(_ implementation: ParseState<Token> throws -> Result) {
         self.implementation = implementation
     }

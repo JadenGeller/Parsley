@@ -6,6 +6,7 @@
 //  Copyright © 2016 Jaden Geller. All rights reserved.
 //
 
+/// An error thrown when parsing fails.
 public enum ParseError: ErrorType {
     case EndOfSequence
     case UnableToMatch(String)
