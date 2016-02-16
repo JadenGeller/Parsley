@@ -6,20 +6,15 @@
 //  Copyright © 2016 Jaden Geller. All rights reserved.
 //
 
+public func tokens<Token: Parsable where Token.TokenInput == Character>(type: Token.Type) -> Parser<Token.TokenInput, [Token]> {
+    return tokens(type.parser, delimitedBy: whitespace)
+}
 
+public func tokens<Token: Parsable, Ignore>(type: Token.Type, delimitedBy delimiterParser: Parser<Token.TokenInput, Ignore>) -> Parser<Token.TokenInput, [Token]> {
+    return tokens(type.parser, delimitedBy: delimiterParser)
+}
 
+public func tokens<Input, Ignore, Token>(parsers: Parser<Input, Token>, delimitedBy delimiterParser: Parser<Input, Ignore>) -> Parser<Input, [Token]> {
+    return many(pair(delimiterParser, parsers).map(right))
+}
 
-
-
-//// TODO: Useless function?
-//public func skipping<Token, Ignore, Result>(skippingParser: Parser<Token, Ignore>, parse parser: Parser<Token, Result>) -> Parser<Token, Result> {
-//    return pair(skippingParser, parser).map(right)
-//}
-//
-//public func tokens<Token: Parsable, Ignore>(type: Token.Type, optionallyDelimitedBy delimiterParser: Parser<Token.Input, Ignore>) -> Parser<Token.Input, [Token]> {
-//    return tokens(type.parser, optionallyDelimitedBy: delimiterParser)
-//}
-//
-//public func tokens<Input, Ignore, Token>(parsers: Parser<Input, Token>, optionallyDelimitedBy delimiterParser: Parser<Input, Ignore>) -> Parser<Input, [Token]> {
-//    return many(skipping(delimiterParser, parse: parsers))
-//}

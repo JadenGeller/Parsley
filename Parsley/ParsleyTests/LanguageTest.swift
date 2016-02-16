@@ -10,7 +10,7 @@ import Foundation
 import XCTest
 import Parsley
 
-enum Sign: Character, TokenSet {
+enum Sign: Character, Matchable {
     case Negative = "-"
     case Positive = "+"
     
@@ -20,7 +20,7 @@ enum Sign: Character, TokenSet {
     }
 }
 
-enum Operator: String, TokenSet, Equatable, CustomStringConvertible {
+enum Operator: String, Matchable, Equatable, CustomStringConvertible {
     case Assignment = ":="
     case Lambda = "->"
     case Binding = "::"
@@ -46,7 +46,7 @@ func ==(lhs: Operator, rhs: Operator) -> Bool {
     }
 }
 
-enum ControlFlow: TokenSet, CustomStringConvertible {
+enum ControlFlow: Matchable, CustomStringConvertible {
     case Nested(PairedDelimiter)
     case Terminator
     case Infix(Operator)
@@ -72,7 +72,7 @@ enum ControlFlow: TokenSet, CustomStringConvertible {
     }
 }
 
-enum Token: Tokenizable, CustomStringConvertible {
+enum Token: Parsable, CustomStringConvertible {
     case Bare(String)
     case Literal(LiteralValue)
     case Flow(ControlFlow)
@@ -82,7 +82,7 @@ enum Token: Tokenizable, CustomStringConvertible {
         many(letter ?? digit ?? character("_"))
     ).stringify().withError("bareWord")
     
-    static var tokenizer = LiteralValue.tokenizer.map(Token.Literal) ?? ControlFlow.tokenizer.map(Token.Flow) ?? bareWord.map(Token.Bare)
+    static var parser = LiteralValue.parser.map(Token.Literal) ?? ControlFlow.parser.map(Token.Flow) ?? bareWord.map(Token.Bare)
     
     var description: String {
         switch self {
@@ -93,7 +93,7 @@ enum Token: Tokenizable, CustomStringConvertible {
     }
 }
 
-struct PairedDelimiter: Equatable, TokenSet, CustomStringConvertible {
+struct PairedDelimiter: Equatable, Matchable, CustomStringConvertible {
     enum Symbol: Equatable {
         case Parenthesis
         case CurlyBracket
@@ -173,12 +173,12 @@ extension Sign {
     }
 }
 
-enum LiteralValue: Tokenizable, Equatable {
+enum LiteralValue: Parsable, Equatable, CustomStringConvertible {
     case IntegerLiteral(sign: Sign, digits: DigitList)
     case FloatingPointLiteral(sign: Sign, significand: DigitList, exponent: Int)
     case StringLiteral(String)
     
-    private static let sign = Sign.tokenizer.otherwise(.Positive)
+    private static let sign = Sign.parser.otherwise(.Positive)
     
     private static let digits = many1(digit)
         .stringify()
@@ -201,7 +201,19 @@ enum LiteralValue: Tokenizable, Equatable {
         .stringify()
         .map(LiteralValue.StringLiteral)
 
-    static var tokenizer = floatingPointLiteral ?? integerLiteral ?? stringLiteral
+    static var parser = floatingPointLiteral ?? integerLiteral ?? stringLiteral
+    
+    var description: String {
+        switch self {
+        case let .IntegerLiteral(sign, digits):
+            // TODO: Clean this up!
+            return String([sign.rawValue] + digits.digits.flatMap{ String($0.rawValue).characters })
+        case let .FloatingPointLiteral:
+            fatalError("Not implemented")
+        case let .StringLiteral(string):
+            return "\"" + string + "\""
+        }
+    }
 }
 
 func ==(lhs: LiteralValue, rhs: LiteralValue) -> Bool {
@@ -269,44 +281,44 @@ func ==(lhs: DigitList, rhs: DigitList) -> Bool {
 
 class LanguageTest: XCTestCase {
     func testDelimiter() {
-        XCTAssertEqual(PairedDelimiter(symbol: .CurlyBracket, facing: .Open), try? PairedDelimiter.tokenizer.parse("{".characters))
+        XCTAssertEqual(PairedDelimiter(symbol: .CurlyBracket, facing: .Open), try? PairedDelimiter.parser.parse("{".characters))
     }
     
     func testLiteral() {
         XCTAssertEqual(
             LiteralValue.IntegerLiteral(sign: .Positive, digits: DigitList(string: "5232")!),
-            try? LiteralValue.tokenizer.parse("+5232")
+            try? LiteralValue.parser.parse("+5232")
         )
         XCTAssertEqual(
             LiteralValue.IntegerLiteral(sign: .Positive, digits: DigitList(string: "085328235")!),
-            try? LiteralValue.tokenizer.parse("085328235")
+            try? LiteralValue.parser.parse("085328235")
         )
         XCTAssertEqual(
             LiteralValue.FloatingPointLiteral(sign: .Negative, significand: DigitList(string: "583253218")!, exponent: -5),
-            try? LiteralValue.tokenizer.parse("-5832.53218")
+            try? LiteralValue.parser.parse("-5832.53218")
         )
         XCTAssertEqual(
             LiteralValue.StringLiteral("Hello \\\"world\\\""),
-            try? LiteralValue.tokenizer.parse("\"Hello \\\"world\\\"\"")
+            try? LiteralValue.parser.parse("\"Hello \\\"world\\\"\"")
         )
     }
     
     func testOperator() {
         XCTAssertEqual(
             Operator.Assignment,
-            try? Operator.tokenizer.parse(":=")
+            Operator.parse(":=")
         )
         XCTAssertEqual(
             Operator.Lambda,
-            try? Operator.tokenizer.parse("->")
+            Operator.parse("->")
         )
         XCTAssertEqual(
             Operator.Binding,
-            try? Operator.tokenizer.parse("::")
+            Operator.parse("::")
         )
     }
     
     func testTokenize() {
-        print(try? tokens(Token.self, optionallyDelimitedBy: whitespace).parse("factorial := (x :: Int) ->  {\n    mutable x := x\n    mutable result := 1\n    while (_ -> greater x 0) (_ -> set result (multiply result x))\n    result\n} :: Int"))
+        print(try? tokens(Token.self).parse("factorial := (x :: Int) ->  {\n    mutable x := x\n    mutable result := 1\n    while (_ -> greater x 0) (_ -> set result (multiply result x))\n    result\n} :: Int"))
     }
 }
