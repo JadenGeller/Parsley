@@ -25,6 +25,7 @@
 		4DBBEFC31C4E4B0C0042E656 /* Base.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DBBEFC11C4E4B0C0042E656 /* Base.swift */; };
 		4DBBEFC41C4E4B0C0042E656 /* Text.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DBBEFC21C4E4B0C0042E656 /* Text.swift */; };
 		4DBBEFCA1C4E4EBB0042E656 /* Utilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DBBEFC91C4E4EBB0042E656 /* Utilities.swift */; };
+		4DC648971C73932400B2D4BA /* Tokenizing.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DC648961C73932400B2D4BA /* Tokenizing.swift */; };
 		4DED4F7D1C45105100A29534 /* CoalescingTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DED4F7B1C45105100A29534 /* CoalescingTests.swift */; };
 		4DED4F7F1C4513E200A29534 /* SequencingTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DED4F7E1C4513E200A29534 /* SequencingTests.swift */; };
 /* End PBXBuildFile section */
@@ -75,6 +76,7 @@
 		4DBBEFC11C4E4B0C0042E656 /* Base.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Base.swift; sourceTree = "<group>"; };
 		4DBBEFC21C4E4B0C0042E656 /* Text.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Text.swift; sourceTree = "<group>"; };
 		4DBBEFC91C4E4EBB0042E656 /* Utilities.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Utilities.swift; sourceTree = "<group>"; };
+		4DC648961C73932400B2D4BA /* Tokenizing.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Tokenizing.swift; sourceTree = "<group>"; };
 		4DED4F7B1C45105100A29534 /* CoalescingTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CoalescingTests.swift; path = ParsleyTests/CoalescingTests.swift; sourceTree = SOURCE_ROOT; };
 		4DED4F7E1C4513E200A29534 /* SequencingTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SequencingTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -178,6 +180,7 @@
 				4D9362041C45D9D00038951F /* Recursive.swift */,
 				4D9362051C45D9D00038951F /* Repeating.swift */,
 				4DBBEFC91C4E4EBB0042E656 /* Utilities.swift */,
+				4DC648961C73932400B2D4BA /* Tokenizing.swift */,
 			);
 			name = Combinators;
 			sourceTree = "<group>";
@@ -346,6 +349,7 @@
 				4D9362061C45D9D00038951F /* Recursive.swift in Sources */,
 				4D9362001C45D9AA0038951F /* Parser.swift in Sources */,
 				4D9361FC1C45D9AA0038951F /* Coalescing.swift in Sources */,
+				4DC648971C73932400B2D4BA /* Tokenizing.swift in Sources */,
 				4DBBEFCA1C4E4EBB0042E656 /* Utilities.swift in Sources */,
 				4D9362011C45D9AA0038951F /* ParseState.swift in Sources */,
 				4D9362071C45D9D00038951F /* Repeating.swift in Sources */,

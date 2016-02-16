@@ -35,7 +35,7 @@ struct Scheme {
         sequence(
             string("/*").discard(),
             few(parser ?? any().discard(), then: string("/*")).discard()
-            ).discard()
+        ).discard()
     }
 }
 
