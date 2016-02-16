@@ -207,7 +207,7 @@ enum LiteralValue: Parsable, Equatable, CustomStringConvertible {
         case let .IntegerLiteral(sign, digits):
             // TODO: Clean this up!
             return String([sign.rawValue] + digits.digits.flatMap{ String($0.rawValue).characters })
-        case let .FloatingPointLiteral:
+        case .FloatingPointLiteral:
             fatalError("Not implemented")
         case let .StringLiteral(string):
             return "\"" + string + "\""
