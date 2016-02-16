@@ -21,6 +21,7 @@
 		4D9362061C45D9D00038951F /* Recursive.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D9362041C45D9D00038951F /* Recursive.swift */; };
 		4D9362071C45D9D00038951F /* Repeating.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D9362051C45D9D00038951F /* Repeating.swift */; };
 		4DA70B3D1C6A873800426AE6 /* Spork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4DA70B3A1C6A873400426AE6 /* Spork.framework */; };
+		4DAA4BAD1C73748400893C3A /* LanguageTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DAA4BAC1C73748400893C3A /* LanguageTest.swift */; };
 		4DBBEFC31C4E4B0C0042E656 /* Base.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DBBEFC11C4E4B0C0042E656 /* Base.swift */; };
 		4DBBEFC41C4E4B0C0042E656 /* Text.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DBBEFC21C4E4B0C0042E656 /* Text.swift */; };
 		4DBBEFCA1C4E4EBB0042E656 /* Utilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DBBEFC91C4E4EBB0042E656 /* Utilities.swift */; };
@@ -70,6 +71,7 @@
 		4D9362041C45D9D00038951F /* Recursive.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Recursive.swift; sourceTree = "<group>"; };
 		4D9362051C45D9D00038951F /* Repeating.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Repeating.swift; sourceTree = "<group>"; };
 		4DA70B341C6A873400426AE6 /* Spork.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = Spork.xcodeproj; path = "../Packages/Spork-1.1.0/Spork/Spork.xcodeproj"; sourceTree = "<group>"; };
+		4DAA4BAC1C73748400893C3A /* LanguageTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LanguageTest.swift; sourceTree = "<group>"; };
 		4DBBEFC11C4E4B0C0042E656 /* Base.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Base.swift; sourceTree = "<group>"; };
 		4DBBEFC21C4E4B0C0042E656 /* Text.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Text.swift; sourceTree = "<group>"; };
 		4DBBEFC91C4E4EBB0042E656 /* Utilities.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Utilities.swift; sourceTree = "<group>"; };
@@ -112,6 +114,7 @@
 			isa = PBXGroup;
 			children = (
 				4D71252B1C45C45900737AF1 /* SchemeTest.swift */,
+				4DAA4BAC1C73748400893C3A /* LanguageTest.swift */,
 			);
 			name = "Integration Tests";
 			sourceTree = "<group>";
@@ -361,6 +364,7 @@
 				4D7213E01C44CFAF007B806B /* BaseTests.swift in Sources */,
 				4D7213EC1C44F6EA007B806B /* RepeatingTest.swift in Sources */,
 				4D71252C1C45C45900737AF1 /* SchemeTest.swift in Sources */,
+				4DAA4BAD1C73748400893C3A /* LanguageTest.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

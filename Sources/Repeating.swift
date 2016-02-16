@@ -119,22 +119,34 @@
 }
 
 /**
-    Constructs a `Parser` that will run `parser` 1 or more times, as few times as possible,
-    such that `then` will succeed afterwards. If no number of successful applications of
-    `parser` allows `then` to succeed, throws a `ParseError`. On success, returns a tuple
-    with the resulting array from applying `parser` on the left and with the result of `then`
-    on the right.
+    Constructs a `Parser` that will run `leftParser`, ignoring the result, then will run
+    `parser` as many times as possible until `rightParser` succeeds. Once `rightParser` succeeds,
+    the collected result of `parser` will be the result.
  
-    - Parameter parser: The parser to run repeatedly.
-    - Parameter then: The parser whose success is desired after applications of `parser`.
-    - Throws: `ParseError` if `then` does not succeed for any number of times that `parser` succeeds.
+    - Parameter leftParser: The parser that will be run first once and whose result will be discarded.
+    - Parameter rightParser: The parser that will be run last once and whose result will be discarded. Note
+                            that this parser is repeatedly attempted until it succeeds, otherwise `parser` runs.
+    - Parameter parser: The parser which is run 1 or more times in between `leftParser` and `rightParser`.
+    - Throws: `ParseError` if `leftParser` fails, if `parser` fails the first time or anytime after `rightParser`
+              fails, or if the input is consumed before `rightParser` succeeds.
 */
-@warn_unused_result public func few1<Token, ManyResult, ThenResult>(parser: Parser<Token, ManyResult>, then: Parser<Token, ThenResult>) -> Parser<Token, ([ManyResult], ThenResult)> {
-    return parser.flatMap { firstResult in
-        few(parser, then: then).map { otherResults, thenResult in
-            ([firstResult] + otherResults, thenResult)
-        }
-    }
+@warn_unused_result public func between<Token, ManyResult, LeftIgnore, RightIgnore>(leftParser: Parser<Token, LeftIgnore>, _ rightParser: Parser<Token, RightIgnore>, parseFew parser: Parser<Token, ManyResult>) -> Parser<Token, [ManyResult]> {
+    return pair(leftParser, few(parser, then: rightParser).map(left)).map(right)
+}
+
+/**
+    Constructs a `Parser` that will run `sideParser` once, ignoring the result, then will run
+    `parser` as many times as possible until `sideParser` again succeeds. Once `sideParser` succeeds again,
+    the collected result of `parser` will be the result.
+ 
+    - Parameter sideParser: The parser that will be run first once and then later run last once, discarding both
+                            results. Note that this parser is repeatedly attempted until it succeeds, otherwise `parser` runs.
+    - Parameter parser: The parser which is run 1 or more times in between `leftParser` and `rightParser`.
+    - Throws: `ParseError` if `sideParser` fails first, if `parser` fails the first time or anytime after `sideParser`
+              fails, or if the input is consumed before `sideParser` succeeds the second time.
+*/
+@warn_unused_result public func between<Token, ManyResult, Ignore>(sideParser: Parser<Token, Ignore>, parseFew parser: Parser<Token, ManyResult>) -> Parser<Token, [ManyResult]> {
+    return pair(sideParser, few(parser, then: sideParser).map(left)).map(right)
 }
 
 /**

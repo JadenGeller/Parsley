@@ -27,3 +27,30 @@
         }
     }
 }
+
+@warn_unused_result public func lookahead<Token, Result>(parser: Parser<Token, Result>) -> Parser<Token, Result> {
+    return Parser { state in
+        let checkpoint = state.checkpoint()
+        defer { state.restore(checkpoint) }
+        return try parser.parse(state)
+    }
+}
+
+// TODO: This should be cleaned up to use some combinator.
+@warn_unused_result public func not<Token, Ignore, Result>(failingParser: Parser<Token, Ignore>, then successfulParser: Parser<Token, Result>) -> Parser<Token, Result> {
+    return Parser { state in
+        let checkpoint = state.checkpoint()
+        do {
+            try failingParser.parse(state)
+        }
+        catch _ as ParseError {
+            state.restore(checkpoint)
+            return try successfulParser.parse(state)
+        }
+        throw ParseError.UnableToMatch("not") // TODO: Bad error
+    }
+}
+
+@warn_unused_result public func except<Token, Ignore>(failingParser: Parser<Token, Ignore>) -> Parser<Token, Token> {
+    return not(failingParser, then: any())
+}

@@ -27,12 +27,7 @@ struct Scheme {
         many(digit)
     ).withError("floatingPointLiteral")
     
-    static let stringLiteral = character("\"")
-    
-    //let stringLiteral = sequence(
-    //    character("\"").lift().discard(),
-    //    many(any(), then: character("\"").discard()).map{ (l, r) in l }
-    //).map{ (l, r) in r }.withError("stringLiteral")
+    static let stringLiteral = between(character("\""), parseFew: string("\\\"") ?? any().lift()).map { $0.flatten() }
     
     static let symbol = oneOf("(", ")", "+", "-", "*", "/", "[", "]").withError("symbol")
     
@@ -67,11 +62,9 @@ class SchemeTests: XCTestCase {
         XCTAssertNil(try? terminating(Scheme.floatingPointLiteral).stringify().parse(".3".characters))
     }
     
-//    func testStringLiteral() {
-//        XCTAssertEqual("13.502", try? terminating(stringLiteral).stringify().parse("\"Hello world!!!:D:D3.1415\"".characters))
-//        XCTAssertEqual("+0.12", try? terminating(stringLiteral).stringify().parse("+0.12".characters))
-//        XCTAssertEqual("-0.", try? terminating(stringLiteral).stringify().parse("-0.".characters))
-//        XCTAssertNil(try? terminating(stringLiteral).stringify().parse("3.-32".characters))
-//        XCTAssertNil(try? terminating(stringLiteral).stringify().parse(".3".characters))
-//    }
+    func testStringLiteral() {
+        XCTAssertEqual("Hello world!!!:D:D3.1415", try? terminating(Scheme.stringLiteral).stringify().parse("\"Hello world!!!:D:D3.1415\"".characters))
+        XCTAssertEqual("Hello world\\\"!!!:D:D3.1415", try! terminating(Scheme.stringLiteral).stringify().parse("\"Hello world\\\"!!!:D:D3.1415\"".characters))
+        XCTAssertNil(try? terminating(Scheme.stringLiteral).stringify().parse("\"Hello world\"!!!:D:D3.1415\"".characters))
+    }
 }

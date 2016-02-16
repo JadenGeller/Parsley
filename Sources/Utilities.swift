@@ -6,6 +6,14 @@
 //  Copyright © 2016 Jaden Geller. All rights reserved.
 //
 
+public func left<A, B>(tuple: (A, B)) -> A {
+    return tuple.0
+}
+
+public func right<A, B>(tuple: (A, B)) -> B {
+    return tuple.1
+}
+
 /**
     Constructs a `Parser` that will run `leftParser` followed by `rightParser`, discarding the result from
     `rightParser` and returning the result from `leftParser`.
