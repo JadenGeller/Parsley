@@ -67,3 +67,5 @@ Note that the order we `coalesce` the two parsers does have an impact on the res
 Once we've finished lexing the input, it's time to parse! Now, the dividing line between these two stages isn't quite as clear as one might expect (as is evident by the fact we talked about a `Parsable` protocol in the lexing section of this document)! The lexing stage ought not care about the recursive tree-like structure of the input. Instead, the lexing stage ought to emit a linear sequence of tokens that simplifies the parsing logic. For example, the lexer ought to deal with discarding (or handling) whitespace so the parser doesn't have to complicate its logic worrying about these cases.
 
 # To be continued.
+
+Impatient? Check out the documentation [here](http://jadengeller.github.io/Parsley/docs/index.html) or dive into the source code!
