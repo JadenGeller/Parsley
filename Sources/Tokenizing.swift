@@ -11,12 +11,12 @@ public protocol Tokenizable {
     static var tokenizer: Parser<Input, Self> { get }
 }
 
-public protocol TokenType: Tokenizable {
+public protocol TokenSet: Tokenizable {
     static var all: [Self] { get }
     var matcher: Parser<Input, ()> { get }
 }
 
-extension TokenType {
+extension TokenSet {
     public static var tokenizer: Parser<Input, Self> {
         return coalesce(Self.all.map{ $0.matcher.replace($0) })
     }

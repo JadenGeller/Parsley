@@ -10,7 +10,7 @@ import Foundation
 import XCTest
 import Parsley
 
-enum Sign: Character, TokenType {
+enum Sign: Character, TokenSet {
     case Negative = "-"
     case Positive = "+"
     
@@ -20,7 +20,7 @@ enum Sign: Character, TokenType {
     }
 }
 
-enum Operator: String, TokenType, Equatable, CustomStringConvertible {
+enum Operator: String, TokenSet, Equatable, CustomStringConvertible {
     case Assignment = ":="
     case Lambda = "->"
     case Binding = "::"
@@ -46,7 +46,7 @@ func ==(lhs: Operator, rhs: Operator) -> Bool {
     }
 }
 
-enum ControlFlow: TokenType, CustomStringConvertible {
+enum ControlFlow: TokenSet, CustomStringConvertible {
     case Nested(PairedDelimiter)
     case Terminator
     case Infix(Operator)
@@ -93,7 +93,7 @@ enum Token: Tokenizable, CustomStringConvertible {
     }
 }
 
-struct PairedDelimiter: Equatable, TokenType, CustomStringConvertible {
+struct PairedDelimiter: Equatable, TokenSet, CustomStringConvertible {
     enum Symbol: Equatable {
         case Parenthesis
         case CurlyBracket
