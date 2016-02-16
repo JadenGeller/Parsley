@@ -1,3 +1,3 @@
 # Parsley
 
-Informative README coming soon. View documentation [here](http://jadengeller.github.io/Parsley/docs/index.html).
+Parsley is a recursive descent parser combinator library that makes it simple to write complex, type-safe parsers in Swift.
