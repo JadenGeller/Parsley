@@ -196,8 +196,7 @@ enum LiteralValue: Parsable, Equatable, CustomStringConvertible {
         return .FloatingPointLiteral(sign: theSign, significand: leftDigits + rightDigits, exponent: -rightDigits.digits.count)
     }
     
-    private static let stringLiteral = between(character("\""), parseFew: string("\\\"") ?? any().lift())
-        .map { $0.flatten() }
+    private static let stringLiteral = between(character("\""), parseFew: any(), usingEscape: character("\\"))
         .stringify()
         .map(LiteralValue.StringLiteral)
 
@@ -298,7 +297,7 @@ class LanguageTest: XCTestCase {
             try? LiteralValue.parser.parse("-5832.53218")
         )
         XCTAssertEqual(
-            LiteralValue.StringLiteral("Hello \\\"world\\\""),
+            LiteralValue.StringLiteral("Hello \"world\""),
             try? LiteralValue.parser.parse("\"Hello \\\"world\\\"\"")
         )
     }

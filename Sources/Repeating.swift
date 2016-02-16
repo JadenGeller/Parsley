@@ -149,6 +149,11 @@
     return pair(sideParser, few(parser, then: sideParser).map(left)).map(right)
 }
 
+// TODO: Document
+@warn_unused_result public func between<Token, ManyResult, EscapeIgnore>(sideParser: Parser<Token, ManyResult>, parseFew parser: Parser<Token, ManyResult>, usingEscape escapeParser: Parser<Token, EscapeIgnore>) -> Parser<Token, [ManyResult]> {
+    return between(sideParser, parseFew: pair(escapeParser, sideParser).map(right) ?? parser)
+}
+
 /**
     Constructs a `Parser` that will run `parser` exactly `count` times and will result in an array
     of the results from each invocation.
