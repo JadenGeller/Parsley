@@ -1,4 +1,4 @@
-# Parsley
+# Parsley `PRERELEASE`
 
 Parsley is a recursive descent parser combinator library that makes it simple to write complex, type-safe parsers in Swift. Note that Parsley **does not promise source compatibility** for the time being. The library is in active development, and many thing might change in the near future. That said, feel free to play around with it if you'd like, it doesn't bite!
 
