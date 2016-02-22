@@ -13,7 +13,7 @@ public protocol Parsable {
 
 extension Parsable {
     public static func parse<S: SequenceType where S.Generator.Element == TokenInput>(sequence: S) -> Self? {
-        return try? parser.parse(sequence)
+        return try? terminating(parser).parse(sequence)
     }
 }
 

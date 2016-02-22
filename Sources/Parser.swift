@@ -23,12 +23,19 @@ public protocol ParserType {
 /// A parser whose `parse` function mutates a `ParseState<Token>` and returns a `Result`.
 public struct Parser<Token, Result>: ParserType {
     internal let implementation: ParseState<Token> throws -> Result
+    internal let name: String
     
     /// Construct a `Parser` that will run `implementation`.
+    public init(_ implementation: ParseState<Token> throws -> Result, name: String) {
+        self.implementation = implementation
+        self.name = name
+    }
+
     public init(_ implementation: ParseState<Token> throws -> Result) {
         self.implementation = implementation
+        self.name = ""
     }
-    
+
     /**
         Runs the parser on the passed in `state`, potentially mutating the state.
      
@@ -68,7 +75,7 @@ extension ParserType {
     }
 }
 
-extension ParserType {
+extension Parser {
     /**
         Returns a `Parser` that, on successful parse, continues parsing with the parser resulting
         from mapping `transform` over its result value; returns the result of this new parser.
@@ -90,9 +97,9 @@ extension ParserType {
         - Parameter transform: The transform to map over the result.
     */
     @warn_unused_result public func map<MappedResult>(transform: Result throws -> MappedResult) -> Parser<Token, MappedResult> {
-        return Parser<Token, MappedResult> { state in
+        return Parser<Token, MappedResult>({ state in
             return try transform(self.parse(state))
-        }
+        }, name: name)
     }
     
     /**
@@ -142,6 +149,22 @@ extension Parser {
     */
     @warn_unused_result public func lift() -> Parser<Token, [Result]> {
         return map { [$0] }
+    }
+}
+
+extension Parser {
+    public func debug(message: String) -> Parser {
+        let wrapped = message + (name == "" ? "" : ("(" + name + ")"))
+        return Parser({ state in
+            print("\(wrapped) attempting...")
+            return try self.parse(state)
+        }, name: wrapped
+        ).peek { result in
+                print("\(wrapped) success: \(result)")
+            }.mapError { error in
+                print("\(wrapped) error: \(error)")
+                return error
+        }
     }
 }
 

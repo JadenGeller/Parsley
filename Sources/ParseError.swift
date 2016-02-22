@@ -43,13 +43,24 @@ extension ParserType {
         }
     }
     
+    @warn_unused_result public func wrapError(outer: String) -> Parser<Token, Result> {
+        return mapError { error in
+            switch error {
+            case .EndOfSequence: return .EndOfSequence
+            case .UnableToMatch(let inner): return .UnableToMatch(outer + "(" + inner + ")")
+            }
+        }
+    }
+}
+
+extension Parser {
     /**
-        Constructs a `Parser` that, on error, discards the previously thrown error and throws instead
-        a new `UnableToMatch` error with the given message.
+     Constructs a `Parser` that, on error, discards the previously thrown error and throws instead
+     a new `UnableToMatch` error with the given message.
      
-        - Parameter description: The description to include in the error.
-    */
+     - Parameter description: The description to include in the error.
+     */
     @warn_unused_result public func withError(description: String) -> Parser<Token, Result> {
-        return mapError { _ in ParseError.UnableToMatch(description) }
+        return Parser(implementation, name: description).mapError { _ in ParseError.UnableToMatch(description) }
     }
 }

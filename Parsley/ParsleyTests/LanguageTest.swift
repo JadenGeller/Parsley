@@ -20,7 +20,7 @@ enum Sign: Character, Matchable {
     }
 }
 
-enum Operator: String, Matchable, Equatable, CustomStringConvertible {
+enum Operator: String, Matchable, Equatable {
     case Assignment = ":="
     case Lambda = "->"
     case Binding = "::"
@@ -46,7 +46,7 @@ func ==(lhs: Operator, rhs: Operator) -> Bool {
     }
 }
 
-enum ControlFlow: Matchable, CustomStringConvertible {
+enum ControlFlow: Matchable {
     case Nested(PairedDelimiter)
     case Terminator
     case Infix(Operator)
@@ -72,7 +72,7 @@ enum ControlFlow: Matchable, CustomStringConvertible {
     }
 }
 
-enum Token: Parsable, CustomStringConvertible {
+enum Token: Parsable {
     case Bare(String)
     case Literal(LiteralValue)
     case Flow(ControlFlow)
@@ -93,7 +93,7 @@ enum Token: Parsable, CustomStringConvertible {
     }
 }
 
-struct PairedDelimiter: Equatable, Matchable, CustomStringConvertible {
+struct PairedDelimiter: Equatable, Matchable {
     enum Symbol: Equatable {
         case Parenthesis
         case CurlyBracket
@@ -173,7 +173,7 @@ extension Sign {
     }
 }
 
-enum LiteralValue: Parsable, Equatable, CustomStringConvertible {
+enum LiteralValue: Parsable, Equatable {
     case IntegerLiteral(sign: Sign, digits: DigitList)
     case FloatingPointLiteral(sign: Sign, significand: DigitList, exponent: Int)
     case StringLiteral(String)
@@ -268,6 +268,13 @@ struct DigitList: SequenceType, Equatable {
     func generate() -> IndexingGenerator<[Digit]> {
         return digits.generate()
     }
+}
+
+private enum Expression {
+}
+
+private enum Statement {
+    case Binding(identifier: String, value: Expression)
 }
 
 func +(lhs: DigitList, rhs: DigitList) -> DigitList {

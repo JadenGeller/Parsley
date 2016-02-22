@@ -70,6 +70,24 @@ public func between<Token, LeftIgnore, RightIgnore, Result>(left: Parser<Token, 
     return dropLeft(left, dropRight(parser, right))
 }
 
+public func infix<Token, InfixResult, LeftResult, RightResult, Result>(infixParser: Parser<Token, InfixResult>, between leftParser: Parser<Token, LeftResult>, _ rightParser: Parser<Token, RightResult>, mapping: InfixResult -> (LeftResult, RightResult) -> Result) -> Parser<Token, Result> {
+    return Parser { state in
+        let left = try leftParser.wrapError("left").parse(state)
+        let infix = try infixParser.parse(state)
+        let right = try rightParser.wrapError("right").parse(state)
+        return mapping(infix)(left, right)
+    }
+}
+
+//public func infix<Token, InfixResult, LeftResult, RightResult>(infixParser: Parser<Token, InfixResult>, between leftParser: Parser<Token, LeftResult>, _ rightParser: Parser<Token, RightResult>) -> Parser<Token, (LeftResult, RightResult)> {
+//    return Parser { state in
+//        let left = try leftParser.wrapError("left").parse(state)
+//        let infix = try infixParser.parse(state)
+//        let right = try rightParser.wrapError("right").parse(state)
+//        return (left, right)
+//    }
+//}
+
 /**
     Constructs a `Parser` that will run `left` followed by `parser` followed by `right`,
     discarding the result from `left` and `right` and returning the result from `parser`.

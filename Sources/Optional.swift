@@ -48,7 +48,7 @@ Constructs a `Parser` that will attempt to parse with `parser`, but will backtra
 /**
     Constructs a `Parser` that will return the unwrapped result if it is not `nil`, and will fail otherwise.
 */
-extension ParserType where Result: OptionalType {
+extension Parser where Result: OptionalType {
     @warn_unused_result public func unwrap() -> Parser<Token, Result.Element> {
         return require { $0.optionalValue != nil }.map { $0.optionalValue! }
     }
