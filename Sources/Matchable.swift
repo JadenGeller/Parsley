@@ -14,6 +14,7 @@ public protocol Matchable: Parsable, Enumeratable {
     var matcher: Parser<TokenInput, ()> { get }
 }
 
+//extension Matchable: Parsable where Self: Enumerable { }
 extension Matchable {
     public static var parser: Parser<TokenInput, Self> {
         return coalesce(Self.all.map{ $0.matcher.replace($0) })
