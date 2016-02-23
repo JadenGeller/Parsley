@@ -9,13 +9,35 @@
 import XCTest
 import Parsley
 
-private enum Expression {
+private enum Expression: Equatable {
     case Number(Int)
     indirect case Add(Expression, Expression)
     indirect case Subtract(Expression, Expression)
     indirect case Multiply(Expression, Expression)
     indirect case Divide(Expression, Expression)
     indirect case Exponent(Expression, Expression)
+}
+
+extension Expression: IntegerLiteralConvertible {
+    init(integerLiteral value: Int) {
+        self = .Number(value)
+    }
+}
+
+private func ==(lhs: (Expression, Expression), rhs: (Expression, Expression)) -> Bool {
+    return lhs.0 == rhs.0 && lhs.1 == rhs.1
+}
+
+private func ==(lhs: Expression, rhs: Expression) -> Bool {
+    switch (lhs, rhs) {
+    case let (.Number(l), .Number(r)):     return l == r
+    case let (.Add(l), .Add(r)):           return l == r
+    case let (.Subtract(l), .Subtract(r)): return l == r
+    case let (.Multiply(l), .Multiply(r)): return l == r
+    case let (.Divide(l), .Divide(r)):     return l == r
+    case let (.Exponent(l), .Exponent(r)): return l == r
+    default: return false
+    }
 }
 
 private enum InfixOperator: String, InfixOperatorType {
@@ -25,7 +47,6 @@ private enum InfixOperator: String, InfixOperatorType {
     case Slash = "/"
     case Power = "^"
     
-    // Unnecessary except for by the protocol :P lame
     static var all: [InfixOperator] = [.Plus, .Minus, .Times, .Slash, .Power]
     
     var matcher: Parser<Character, ()> {
@@ -47,70 +68,30 @@ private enum InfixOperator: String, InfixOperatorType {
     }
 }
 
-private func toExpression(infix: Infix<InfixOperator, Int>) -> Expression {
-    switch infix {
-    case let .Expression(.Plus, left, right):
-        return .Add(toExpression(left), toExpression(right))
-    case let .Expression(.Minus, left, right):
-        return .Subtract(toExpression(left), toExpression(right))
-    case let .Expression(.Times, left, right):
-        return .Multiply(toExpression(left), toExpression(right))
-    case let .Expression(.Slash, left, right):
-        return .Divide(toExpression(left), toExpression(right))
-    case let .Expression(.Power, left, right):
-        return .Exponent(toExpression(left), toExpression(right))
-    case let .Value(value):
-        return .Number(value)
-    }
-}
-
 extension Expression: Parsable {
-//    static var
-//    static var tokenParser = either(
-//        numberParser,
-//        between(character("("), character(")"), parse: expressionParser)
-//    )
-    static var parser = infix(InfixOperator.self, between: many1(digit).map{ Int(String($0))! }).map(toExpression)
-    
-    #if false
-    static var parser = recursive { (expression: Parser<Character, Expression>) in
-        let token = (recursive { (token: Parser<Character, Expression>) in
-            let number = many1(digit).map{ Expression.Number(Int(String($0))!) }.debug("number")
-            return coalesce(
-                number,
-                between(character("(").debug("open paren"), character(")").debug("close paren"), parse: expression.debug("paren expr"))
-            )
-        }).debug("token")
-        
-        let high = recursive { (high: Parser<Character, Expression>) in
-            (infix(character("^").debug("high ^"), between: token.debug("high lhs"), high.debug("high rhs")) { _ in
-                Expression.Exponent
-            } ?? token.debug("high otherwise")).debug("high")
+    static func build(infix: Infix<InfixOperator, Int>) -> Expression {
+        switch infix {
+        case let .Expression(op, left, right):
+            return Expression.initializer(op)(build(left), build(right))
+        case let .Value(value):
+            return .Number(value)
         }
-        
-        let medium = recursive { (medium: Parser<Character, Expression>) in
-            (infix(within("*/").debug("medium */"), between: high.debug("medium lhs"), medium.debug("medium rhs")) { c in
-                switch c {
-                case "*": return Expression.Multiply
-                case "/": return Expression.Divide
-                default: fatalError()
-                }
-            } ?? high.debug("medium otherwise")).debug("medium")
-        }
-        
-        let low = recursive { (low: Parser<Character, Expression>) in
-            (infix(within("+-").debug("low +-"), between: medium.debug("low lhs"), low.debug("low rhs")) { c in
-                switch c {
-                case "+": return Expression.Add
-                case "-": return Expression.Subtract
-                default: fatalError()
-                }
-            } ?? medium.debug("low otherwise")).debug("low")
-        }
-
-        return low
     }
-    #endif
+    
+    static func initializer(op: InfixOperator) -> (Expression, Expression) -> Expression {
+        switch op {
+        case .Plus:  return Expression.Add
+        case .Minus: return Expression.Subtract
+        case .Times: return Expression.Multiply
+        case .Slash: return Expression.Divide
+        case .Power: return Expression.Exponent
+        }
+    }
+    
+    static var parser = infix(InfixOperator.self,
+        between: many1(digit).map{ Int(String($0))! },
+        groupedBy: (character("("), character(")"))
+    ).map(Expression.build)
 }
 
 extension Expression: CustomStringConvertible {
@@ -128,7 +109,9 @@ extension Expression: CustomStringConvertible {
 
 class OperatorTest: XCTestCase {
     func testOperator() {
-        let input = "1+2"
-        print(try! terminating(Expression.parser).parse(input))
+        XCTAssertEqual(
+            .Add(1, .Add(.Multiply(.Exponent(3, 2), .Divide(.Add(5, 4), 8)), .Multiply(3, 3))),
+            Expression.parse("1+3^2*(5+4)/8+3*3")
+        )
     }
 }

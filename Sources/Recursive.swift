@@ -29,3 +29,9 @@
 @warn_unused_result private func fixedPoint<T, V>(recurse: (T throws -> V) -> (T throws -> V)) -> T throws -> V {
     return { try recurse(fixedPoint(recurse))($0) }
 }
+
+@warn_unused_result public func hold<T, V>(@autoclosure(escaping) parser: () -> Parser<T, V>) -> Parser<T, V> {
+    return Parser { state in
+        return try parser().parse(state)
+    }
+}
