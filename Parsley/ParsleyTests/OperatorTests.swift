@@ -88,7 +88,7 @@ extension Expression: Parsable {
         }
     }
     
-    static var parser = infix(InfixOperator.self,
+    static var parser = infix(InfixOperator.all,
         between: many1(digit).map{ Int(String($0))! },
         groupedBy: (character("("), character(")"))
     ).map(Expression.build)
