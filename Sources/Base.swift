@@ -98,6 +98,14 @@ public func terminating<Token, Result>(parser: Parser<Token, Result>) -> Parser<
     return satisfy(sequence.contains).withError("oneOf(\(sequence)")
 }
 
+@warn_unused_result public func raw<Token: Equatable, Element: RawRepresentable where Element.RawValue == [Token]>(value: Element) -> Parser<Token, Element> {
+    return sequence(value.rawValue.map(token)).replace(value)
+}
+
+@warn_unused_result public func raw<Token: Equatable, Element: RawRepresentable where Element.RawValue == Token>(value: Element) -> Parser<Token, Element> {
+    return token(value.rawValue).replace(value)
+}
+
 /**
     Constructs a `Parser` that consumes a single token and returns the token
     if it is within the list `tokens`.
