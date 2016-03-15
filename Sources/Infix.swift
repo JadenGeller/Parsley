@@ -91,16 +91,21 @@ extension SequenceType {
     }
 }
 
+@available(*, deprecated=1.0)
 public func infix<InfixOperator: InfixOperatorType, Result, Discard>(operatorList: [InfixOperator], between parser: Parser<InfixOperator.TokenInput, Result>, groupedBy: (left: Parser<InfixOperator.TokenInput, Discard>, right: Parser<InfixOperator.TokenInput, Discard>)) -> Parser<InfixOperator.TokenInput, Infix<InfixOperator, Result>> {
-    typealias InfixParser = Parser<InfixOperator.TokenInput, Infix<InfixOperator, Result>>
+    return infix(operatorList, operatorMatcherBuilder: { $0.matcher }, between: parser, groupedBy: groupedBy)
+}
+
+public func infix<TokenInput, InfixOperator: InfixOperatorType, Result, Discard>(operatorList: [InfixOperator], operatorMatcherBuilder: InfixOperator -> Parser<TokenInput, ()>, between parser: Parser<TokenInput, Result>, groupedBy: (left: Parser<TokenInput, Discard>, right: Parser<TokenInput, Discard>)) -> Parser<TokenInput, Infix<InfixOperator, Result>> {
+    typealias InfixParser = Parser<TokenInput, Infix<InfixOperator, Result>>
     
     // Order the operators by precedence, grouping those of similiar precedence, and then further grouping by associativity.
     let precedenceSortedOperators = operatorList.group{ $0.precedence > $1.precedence }.map{ $0.groupBy { $0.associativity } }
     
     // Set the base case to `parser`.
     var level: InfixParser = between(groupedBy.left, groupedBy.right, parse:
-        hold(infix(operatorList, between: parser, groupedBy: groupedBy))
-    ) ?? parser.map(Infix.Value)
+        hold(infix(operatorList, operatorMatcherBuilder: operatorMatcherBuilder, between: parser, groupedBy: groupedBy))
+        ) ?? parser.map(Infix.Value)
     
     // Iterate over the precedence levels in increasing order.
     for precedenceLevel in precedenceSortedOperators {
@@ -113,23 +118,22 @@ public func infix<InfixOperator: InfixOperatorType, Result, Discard>(operatorLis
                 
                 // Parse any of the possible operators with this associativity and precedence.
                 return coalesce(compatibleOperators.map { anOperator in
-
+                    
                     // Parse the operator symbol expression. Each expression will be either the same or
                     // previous level depending on the associativity of the operator. Eventually, we'll
                     // run out of operators to parse and parse the previous level regardless.
-                    return infix(anOperator.matcher, between:
+                    return infix(operatorMatcherBuilder(anOperator), between:
                         associativity == .Right ? (level ?? previousLevel) : previousLevel,
                         associativity == .Left  ? (level ?? previousLevel) : previousLevel
-                    ).map { lhs, rhs in
-                        Infix.Expression(infixOperator: anOperator, left: lhs, right: rhs)
+                        ).map { lhs, rhs in
+                            Infix.Expression(infixOperator: anOperator, left: lhs, right: rhs)
                     }
-                })
+                    })
             }
-        }) ?? previousLevel // There are no operators to parse at this level, so parse the previous level.
+            }) ?? previousLevel // There are no operators to parse at this level, so parse the previous level.
     }
     
     // Return the parser that will parse a tree of operators.
     return level
 }
-
 
