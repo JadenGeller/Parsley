@@ -1,6 +1,12 @@
 # Parsley `PRE-RELEASE`
 
-Parsley is a recursive descent parser combinator library that makes it simple to write complex, type-safe parsers in Swift. Note that Parsley **does not promise source compatibility** for the time being. The library is in active development, and many thing might change in the near future. That said, feel free to play around with it if you'd like, it doesn't bite!
+Parsley is a recursive descent parser combinator library that makes it simple to write complex, type-safe parsers in Swift. Note that Parsley **does not promise source compatibility** for the time being. The library is in active development, and many thing might change in the near future. Specifically,
+
+- I want to somehow modify it to support tracking indices while parsing. This might introduce a requirement that what's being parsed is indexable.
+- I want to improve error handling, especially in its suggestion of expected value v. actual value.
+- I want to clean up the library so that it is more lightweight with another library adding more functionality on top of it.
+
+That said, feel free to play around with it if you'd like, it doesn't bite!
 
 ## Lexing
 It's super easy to define lexable types in Parsley! The simplest types to lex are those whose values can be enumerated and matched against the input. For example, if you'd like to lex a finite set of operators, your operator type can conform to `Matchable` and it will be automatically `Parsable`.

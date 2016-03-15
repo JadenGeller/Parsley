@@ -91,15 +91,15 @@ extension SequenceType {
     }
 }
 
-public func infix<InfixOperator: InfixOperatorType, Result, Discard>(operatorType: InfixOperator.Type, between parser: Parser<InfixOperator.TokenInput, Result>, groupedBy: (left: Parser<InfixOperator.TokenInput, Discard>, right: Parser<InfixOperator.TokenInput, Discard>)) -> Parser<InfixOperator.TokenInput, Infix<InfixOperator, Result>> {
+public func infix<InfixOperator: InfixOperatorType, Result, Discard>(operatorList: [InfixOperator], between parser: Parser<InfixOperator.TokenInput, Result>, groupedBy: (left: Parser<InfixOperator.TokenInput, Discard>, right: Parser<InfixOperator.TokenInput, Discard>)) -> Parser<InfixOperator.TokenInput, Infix<InfixOperator, Result>> {
     typealias InfixParser = Parser<InfixOperator.TokenInput, Infix<InfixOperator, Result>>
     
     // Order the operators by precedence, grouping those of similiar precedence, and then further grouping by associativity.
-    let precedenceSortedOperators = InfixOperator.all.group{ $0.precedence > $1.precedence }.map{ $0.groupBy { $0.associativity } }
+    let precedenceSortedOperators = operatorList.group{ $0.precedence > $1.precedence }.map{ $0.groupBy { $0.associativity } }
     
     // Set the base case to `parser`.
     var level: InfixParser = between(groupedBy.left, groupedBy.right, parse:
-        hold(infix(InfixOperator.self, between: parser, groupedBy: groupedBy))
+        hold(infix(operatorList, between: parser, groupedBy: groupedBy))
     ) ?? parser.map(Infix.Value)
     
     // Iterate over the precedence levels in increasing order.
