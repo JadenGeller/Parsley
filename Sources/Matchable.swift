@@ -6,13 +6,17 @@
 //  Copyright © 2016 Jaden Geller. All rights reserved.
 //
 
+// TODO: Bad protocol. Remove.
 public protocol Enumeratable {
     static var all: [Self] { get }
 }
 
+// TODO: Remove enumerable conformance.
 public protocol Matchable: Parsable, Enumeratable {
     var matcher: Parser<TokenInput, ()> { get }
 }
+
+
 
 //extension Matchable: Parsable where Self: Enumerable { }
 extension Matchable {
