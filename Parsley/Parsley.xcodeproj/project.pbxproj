@@ -8,11 +8,15 @@
 
 /* Begin PBXBuildFile section */
 		4D36B9FD1C7B1933008B643B /* OperatorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D36B9FC1C7B1933008B643B /* OperatorTests.swift */; };
+		4D4C417E1CB79C1500055D86 /* Associativity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D4C417D1CB79C1500055D86 /* Associativity.swift */; };
+		4D4C41811CB7A5F600055D86 /* OperatorDeclaration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D4C41801CB7A5F600055D86 /* OperatorDeclaration.swift */; };
+		4D4C41841CB7A8B200055D86 /* OperatorProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D4C41831CB7A8B200055D86 /* OperatorProperties.swift */; };
+		4D4C41881CB7B11D00055D86 /* OperatorSpecification.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D4C41871CB7B11D00055D86 /* OperatorSpecification.swift */; };
 		4D71252C1C45C45900737AF1 /* SchemeTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D71252B1C45C45900737AF1 /* SchemeTest.swift */; };
 		4D7213A61C44A9E7007B806B /* Parsley.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4D72139B1C44A9E7007B806B /* Parsley.framework */; };
 		4D7213E01C44CFAF007B806B /* BaseTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D7213DF1C44CFAF007B806B /* BaseTests.swift */; };
 		4D7213EC1C44F6EA007B806B /* RepeatingTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D7213EB1C44F6EA007B806B /* RepeatingTest.swift */; };
-		4D827BEE1C7B4F9E008F7C7E /* Infix.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D827BED1C7B4F9E008F7C7E /* Infix.swift */; };
+		4D827BEE1C7B4F9E008F7C7E /* OperatorExpression.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D827BED1C7B4F9E008F7C7E /* OperatorExpression.swift */; };
 		4D9361FB1C45D9AA0038951F /* Backtracking.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D9361F21C45D9AA0038951F /* Backtracking.swift */; };
 		4D9361FC1C45D9AA0038951F /* Coalescing.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D9361F31C45D9AA0038951F /* Coalescing.swift */; };
 		4D9361FD1C45D9AA0038951F /* Optional.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D9361F41C45D9AA0038951F /* Optional.swift */; };
@@ -22,7 +26,6 @@
 		4D9362011C45D9AA0038951F /* ParseState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D9361F81C45D9AA0038951F /* ParseState.swift */; };
 		4D9362061C45D9D00038951F /* Recursive.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D9362041C45D9D00038951F /* Recursive.swift */; };
 		4D9362071C45D9D00038951F /* Repeating.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D9362051C45D9D00038951F /* Repeating.swift */; };
-		4DA70B3D1C6A873800426AE6 /* Spork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4DA70B3A1C6A873400426AE6 /* Spork.framework */; };
 		4DAA4BAD1C73748400893C3A /* LanguageTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DAA4BAC1C73748400893C3A /* LanguageTest.swift */; };
 		4DBBEFC31C4E4B0C0042E656 /* Base.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DBBEFC11C4E4B0C0042E656 /* Base.swift */; };
 		4DBBEFC41C4E4B0C0042E656 /* Text.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DBBEFC21C4E4B0C0042E656 /* Text.swift */; };
@@ -35,6 +38,20 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
+		4D4C41671CB7791E00055D86 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 4D4C41621CB7791D00055D86 /* Spork.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 4D0E2BCE1BCCC20B00826435;
+			remoteInfo = Spork;
+		};
+		4D4C41691CB7791E00055D86 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 4D4C41621CB7791D00055D86 /* Spork.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 4D0E2BD81BCCC20B00826435;
+			remoteInfo = SporkTests;
+		};
 		4D7213A71C44A9E7007B806B /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 4D7213921C44A9E7007B806B /* Project object */;
@@ -42,24 +59,15 @@
 			remoteGlobalIDString = 4D72139A1C44A9E7007B806B;
 			remoteInfo = Parsley;
 		};
-		4DA70B391C6A873400426AE6 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 4DA70B341C6A873400426AE6 /* Spork.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = 4D0E2BCE1BCCC20B00826435;
-			remoteInfo = Spork;
-		};
-		4DA70B3B1C6A873400426AE6 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 4DA70B341C6A873400426AE6 /* Spork.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = 4D0E2BD81BCCC20B00826435;
-			remoteInfo = SporkTests;
-		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
 		4D36B9FC1C7B1933008B643B /* OperatorTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OperatorTests.swift; sourceTree = "<group>"; };
+		4D4C41621CB7791D00055D86 /* Spork.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = Spork.xcodeproj; path = "../../Spork-1.1.0/Spork/Spork.xcodeproj"; sourceTree = "<group>"; };
+		4D4C417D1CB79C1500055D86 /* Associativity.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Associativity.swift; sourceTree = "<group>"; };
+		4D4C41801CB7A5F600055D86 /* OperatorDeclaration.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OperatorDeclaration.swift; sourceTree = "<group>"; };
+		4D4C41831CB7A8B200055D86 /* OperatorProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OperatorProperties.swift; sourceTree = "<group>"; };
+		4D4C41871CB7B11D00055D86 /* OperatorSpecification.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OperatorSpecification.swift; sourceTree = "<group>"; };
 		4D71252B1C45C45900737AF1 /* SchemeTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SchemeTest.swift; sourceTree = "<group>"; };
 		4D72139B1C44A9E7007B806B /* Parsley.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Parsley.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		4D7213A01C44A9E7007B806B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -67,7 +75,7 @@
 		4D7213AC1C44A9E7007B806B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		4D7213DF1C44CFAF007B806B /* BaseTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseTests.swift; sourceTree = "<group>"; };
 		4D7213EB1C44F6EA007B806B /* RepeatingTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RepeatingTest.swift; sourceTree = "<group>"; };
-		4D827BED1C7B4F9E008F7C7E /* Infix.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Infix.swift; sourceTree = "<group>"; };
+		4D827BED1C7B4F9E008F7C7E /* OperatorExpression.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OperatorExpression.swift; sourceTree = "<group>"; };
 		4D9361F21C45D9AA0038951F /* Backtracking.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Backtracking.swift; sourceTree = "<group>"; };
 		4D9361F31C45D9AA0038951F /* Coalescing.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Coalescing.swift; sourceTree = "<group>"; };
 		4D9361F41C45D9AA0038951F /* Optional.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Optional.swift; sourceTree = "<group>"; };
@@ -77,7 +85,6 @@
 		4D9361F81C45D9AA0038951F /* ParseState.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ParseState.swift; sourceTree = "<group>"; };
 		4D9362041C45D9D00038951F /* Recursive.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Recursive.swift; sourceTree = "<group>"; };
 		4D9362051C45D9D00038951F /* Repeating.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Repeating.swift; sourceTree = "<group>"; };
-		4DA70B341C6A873400426AE6 /* Spork.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = Spork.xcodeproj; path = "../Packages/Spork-1.1.0/Spork/Spork.xcodeproj"; sourceTree = "<group>"; };
 		4DAA4BAC1C73748400893C3A /* LanguageTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LanguageTest.swift; sourceTree = "<group>"; };
 		4DBBEFC11C4E4B0C0042E656 /* Base.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Base.swift; sourceTree = "<group>"; };
 		4DBBEFC21C4E4B0C0042E656 /* Text.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Text.swift; sourceTree = "<group>"; };
@@ -94,7 +101,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				4DA70B3D1C6A873800426AE6 /* Spork.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -109,6 +115,27 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		4D4C41631CB7791D00055D86 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				4D4C41681CB7791E00055D86 /* Spork.framework */,
+				4D4C416A1CB7791E00055D86 /* SporkTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		4D4C41821CB7A86000055D86 /* Operator */ = {
+			isa = PBXGroup;
+			children = (
+				4D4C417D1CB79C1500055D86 /* Associativity.swift */,
+				4D4C41801CB7A5F600055D86 /* OperatorDeclaration.swift */,
+				4D4C41831CB7A8B200055D86 /* OperatorProperties.swift */,
+				4D4C41871CB7B11D00055D86 /* OperatorSpecification.swift */,
+				4D827BED1C7B4F9E008F7C7E /* OperatorExpression.swift */,
+			);
+			name = Operator;
+			sourceTree = "<group>";
+		};
 		4D71252F1C45C45C00737AF1 /* Unit Tests */ = {
 			isa = PBXGroup;
 			children = (
@@ -133,7 +160,7 @@
 		4D7213911C44A9E7007B806B = {
 			isa = PBXGroup;
 			children = (
-				4DA70B341C6A873400426AE6 /* Spork.xcodeproj */,
+				4D4C41621CB7791D00055D86 /* Spork.xcodeproj */,
 				4D72139D1C44A9E7007B806B /* Parsley */,
 				4D7213A91C44A9E7007B806B /* ParsleyTests */,
 				4D72139C1C44A9E7007B806B /* Products */,
@@ -176,7 +203,7 @@
 				4D9361F11C45D9AA0038951F /* Combinators */,
 				4DFEC7881C73A8960007B2A7 /* Parsable.swift */,
 				4DFEC78A1C73A8AE0007B2A7 /* Matchable.swift */,
-				4D827BED1C7B4F9E008F7C7E /* Infix.swift */,
+				4D4C41821CB7A86000055D86 /* Operator */,
 			);
 			name = Sources;
 			path = ../../Sources;
@@ -195,15 +222,6 @@
 				4DC648961C73932400B2D4BA /* Tokenizing.swift */,
 			);
 			name = Combinators;
-			sourceTree = "<group>";
-		};
-		4DA70B351C6A873400426AE6 /* Products */ = {
-			isa = PBXGroup;
-			children = (
-				4DA70B3A1C6A873400426AE6 /* Spork.framework */,
-				4DA70B3C1C6A873400426AE6 /* SporkTests.xctest */,
-			);
-			name = Products;
 			sourceTree = "<group>";
 		};
 		4DBBEFC51C4E4B0F0042E656 /* Primitives */ = {
@@ -304,8 +322,8 @@
 			projectDirPath = "";
 			projectReferences = (
 				{
-					ProductGroup = 4DA70B351C6A873400426AE6 /* Products */;
-					ProjectRef = 4DA70B341C6A873400426AE6 /* Spork.xcodeproj */;
+					ProductGroup = 4D4C41631CB7791D00055D86 /* Products */;
+					ProjectRef = 4D4C41621CB7791D00055D86 /* Spork.xcodeproj */;
 				},
 			);
 			projectRoot = "";
@@ -317,18 +335,18 @@
 /* End PBXProject section */
 
 /* Begin PBXReferenceProxy section */
-		4DA70B3A1C6A873400426AE6 /* Spork.framework */ = {
+		4D4C41681CB7791E00055D86 /* Spork.framework */ = {
 			isa = PBXReferenceProxy;
 			fileType = wrapper.framework;
 			path = Spork.framework;
-			remoteRef = 4DA70B391C6A873400426AE6 /* PBXContainerItemProxy */;
+			remoteRef = 4D4C41671CB7791E00055D86 /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
-		4DA70B3C1C6A873400426AE6 /* SporkTests.xctest */ = {
+		4D4C416A1CB7791E00055D86 /* SporkTests.xctest */ = {
 			isa = PBXReferenceProxy;
 			fileType = wrapper.cfbundle;
 			path = SporkTests.xctest;
-			remoteRef = 4DA70B3B1C6A873400426AE6 /* PBXContainerItemProxy */;
+			remoteRef = 4D4C41691CB7791E00055D86 /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
 /* End PBXReferenceProxy section */
@@ -358,15 +376,19 @@
 				4D9361FB1C45D9AA0038951F /* Backtracking.swift in Sources */,
 				4D9361FE1C45D9AA0038951F /* Sequencing.swift in Sources */,
 				4DBBEFC31C4E4B0C0042E656 /* Base.swift in Sources */,
+				4D4C41881CB7B11D00055D86 /* OperatorSpecification.swift in Sources */,
 				4D9362061C45D9D00038951F /* Recursive.swift in Sources */,
-				4D827BEE1C7B4F9E008F7C7E /* Infix.swift in Sources */,
+				4D827BEE1C7B4F9E008F7C7E /* OperatorExpression.swift in Sources */,
 				4D9362001C45D9AA0038951F /* Parser.swift in Sources */,
 				4DFEC78B1C73A8AE0007B2A7 /* Matchable.swift in Sources */,
 				4D9361FC1C45D9AA0038951F /* Coalescing.swift in Sources */,
 				4DC648971C73932400B2D4BA /* Tokenizing.swift in Sources */,
+				4D4C417E1CB79C1500055D86 /* Associativity.swift in Sources */,
 				4DBBEFCA1C4E4EBB0042E656 /* Utilities.swift in Sources */,
 				4D9362011C45D9AA0038951F /* ParseState.swift in Sources */,
 				4D9362071C45D9D00038951F /* Repeating.swift in Sources */,
+				4D4C41811CB7A5F600055D86 /* OperatorDeclaration.swift in Sources */,
+				4D4C41841CB7A8B200055D86 /* OperatorProperties.swift in Sources */,
 				4D9361FD1C45D9AA0038951F /* Optional.swift in Sources */,
 				4DFEC7891C73A8960007B2A7 /* Parsable.swift in Sources */,
 				4DBBEFC41C4E4B0C0042E656 /* Text.swift in Sources */,

@@ -57,7 +57,7 @@ extension Parser where Result: SequenceType, Result.Generator.Element == Charact
  - Parameter text: The `String` that the input is tested against.
  */
 @warn_unused_result public func within(text: String) -> Parser<Character, Character> {
-    return oneOf(text.characters).withError("within(\(text))")
+    return one(of: text.characters).withError("within(\(text))")
 }
 
 /**

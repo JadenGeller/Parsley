@@ -57,7 +57,7 @@ extension Parser where Result: OptionalType {
 // MARK: Helpers
 
 public protocol OptionalType {
-    typealias Element
+    associatedtype Element
     var optionalValue: Optional<Element> { get }
 }
 

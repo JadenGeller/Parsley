@@ -94,7 +94,7 @@ public func terminating<Token, Result>(parser: Parser<Token, Result>) -> Parser<
  
     - Parameter sequence: The sequence that the input is tested against.
  */
-@warn_unused_result public func oneOf<S: SequenceType where S.Generator.Element: Equatable>(sequence: S) -> Parser<S.Generator.Element, S.Generator.Element> {
+@warn_unused_result public func one<S: SequenceType where S.Generator.Element: Equatable>(of sequence: S) -> Parser<S.Generator.Element, S.Generator.Element> {
     return satisfy(sequence.contains).withError("oneOf(\(sequence)")
 }
 
@@ -112,7 +112,17 @@ public func terminating<Token, Result>(parser: Parser<Token, Result>) -> Parser<
  
     - Parameter tokens: The list that the input is tested against.
 */
-@warn_unused_result public func oneOf<Token: Equatable>(tokens: Token...) -> Parser<Token, Token> {
-    return oneOf(tokens)
+@warn_unused_result public func one<Token: Equatable>(of tokens: Token...) -> Parser<Token, Token> {
+    return one(of: tokens)
 }
+
+@warn_unused_result public func match<Token: Equatable, Element>(elements: [Element], transform: Element -> [Token]) -> Parser<Token, Element> {
+    return coalesce(elements.map{ sequence(transform($0).map(token)).replace($0) })
+}
+
+@warn_unused_result public func convert<Token, Result>(transform: Token -> Result?) -> Parser<Token, Result> {
+    return any().map(transform).require{ $0 != nil }.map{ $0! }
+}
+
+
 

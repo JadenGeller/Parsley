@@ -12,10 +12,10 @@ import Spork
 /// Swift limitation that extensions cannot make concrete type non-generic.
 public protocol ParserType {
     /// The type whose sequence is parsed by the parser.
-    typealias Token
+    associatedtype Token
     
     /// The type that results from the parsing.
-    typealias Result
+    associatedtype Result
     
     @warn_unused_result func parse(state: ParseState<Token>) throws -> Result
 }
