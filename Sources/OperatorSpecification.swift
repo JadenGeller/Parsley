@@ -25,7 +25,6 @@ extension OperatorSpecification {
     /// and then further grouping by associativity.
     internal var descendingPrecedenceTieredInfixDeclarations: [[Associativity : [Symbol]]] {
         return declarations
-            .filter{ switch $0.properties { case .infix: return true ; default: return false } }
             .groupSort{ $0.properties.precedence > $1.properties.precedence }
             .map{ $0.grouping(member: { $0.symbol }, by: { $0.properties.associativity }) }
     }
@@ -39,18 +38,17 @@ extension SequenceType {
         var grouped: [[Generator.Element]] = []
         var similiar: [Generator.Element] = []
         for element in sort(isOrderedBefore) {
-            guard !similiar.isEmpty else {
+            guard let check = similiar.first else {
                 similiar.append(element)
                 continue
             }
-            let check = similiar.first!
             
             assert(!isOrderedBefore(element, check))
             if isOrderedBefore(check, element) { // Different
                 grouped.append(similiar)
                 similiar = [element]
             } else { // Equal
-                grouped[grouped.endIndex - 1].append(element)
+                similiar.append(element)
             }
         }
         grouped.append(similiar)

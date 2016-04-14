@@ -7,7 +7,7 @@
 //
 
 //public func tokens<Token: Parsable where Token.TokenInput == Character>(type: Token.Type) -> Parser<Token.TokenInput, [Token]> {
-//    return tokens(type.parser, delimitedBy: whitespace)
+//    return tokens(type.parser, delimitedBy: many(whitespace))
 //}
 //
 //public func tokens<Token: Parsable, Ignore>(type: Token.Type, delimitedBy delimiterParser: Parser<Token.TokenInput, Ignore>) -> Parser<Token.TokenInput, [Token]> {

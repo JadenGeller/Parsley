@@ -99,6 +99,13 @@ public func operatorExpression<Symbol: Hashable, Token, Result, Discard>(
         }) ?? previousLevel // There are no operators to parse at this level, so parse the previous level.
     }
     
+//    // Handle prefix and postfix operators
+//    let x = specification.prefixOperators.map { prefixOperator in
+//        pair(matching(prefixOperator), level).map(right)
+//            OperatorExpression.prefix(prefixOperator:
+//        }
+//    }
+    
     // Return the parser that will parse a tree of operators.
     return level
 }

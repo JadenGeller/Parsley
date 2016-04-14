@@ -157,6 +157,7 @@ extension Parser {
         let wrapped = message + (name == "" ? "" : ("(" + name + ")"))
         return Parser({ state in
             print("\(wrapped) attempting...")
+            print("\(state.lookahead) next...")
             return try self.parse(state)
         }, name: wrapped
         ).peek { result in

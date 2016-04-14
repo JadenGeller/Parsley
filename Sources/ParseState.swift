@@ -10,8 +10,9 @@ import Spork
 
 /// Represents the state of the parser. Stores the generator from which the subsequent symbols to parse
 /// are obtained.
-public final class ParseState<Token> {
+public class ParseState<Token> {
     private var backing: AnyForkableGenerator<Token>
+    public var lookbehind: Token?
     
     private init<Generator: ForkableGeneratorType where Generator.Element == Token>(_ generator: Generator) {
         self.backing = AnyForkableGenerator(generator)
@@ -32,23 +33,32 @@ extension ParseState {
     /// Returns the next token from the generator, otherwise throws a `ParseError` if no more tokens are availible.
     public func read() throws -> Token {
         guard let next = backing.next() else { throw ParseError.EndOfSequence }
+        lookbehind = next
         return next
+    }
+    
+    public var lookahead: Token? {
+        let saved = checkpoint()
+        defer { restore(saved) }
+        return try? read()
     }
 }
 
 /// Provides backtracking capabilities by allowing a `ParseState` to be saved and restored.
 public struct ParseStateCheckpoint<Token> {
     private let backing: AnyForkableGenerator<Token>
+    private let lookbehind: Token?
 }
 
 extension ParseState {
     /// Save the current `ParseState` for later restoration.
     @warn_unused_result public func checkpoint() -> ParseStateCheckpoint<Token> {
-        return ParseStateCheckpoint(backing: backing.fork())
+        return ParseStateCheckpoint(backing: backing.fork(), lookbehind: lookbehind)
     }
     
     /// Restore the `ParseState` to what is was when `checkpoint` was created.
     public func restore(checkpoint: ParseStateCheckpoint<Token>) {
         backing = checkpoint.backing
+        lookbehind = checkpoint.lookbehind
     }
 }

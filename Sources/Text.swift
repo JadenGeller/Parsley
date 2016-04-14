@@ -71,16 +71,6 @@ public let letter: Parser<Character, Character> = within("A"..."z").withError("l
 public let digit: Parser<Character, Character> = within("0"..."9").withError("digit")
 
 /**
-    Constructs a `Parser` that succeeds upon consuming a space character.
-*/
-public let space: Parser<Character, Character> = token(" ").withError("space")
-
-/**
-    Constructs a `Parser` that skips zero or more space characters.
-*/
-public let spaces: Parser<Character, ()> = many(space).discard()
-
-/**
     Constructs a `Parser` that succeeds upon consuming a new line character.
 */
 public let newLine: Parser<Character, Character> = token("\n").withError("newline")
@@ -91,9 +81,14 @@ public let newLine: Parser<Character, Character> = token("\n").withError("newlin
 public let tab: Parser<Character, Character> = token("\t").withError("tab")
 
 /**
-    Constructs a `Parser` that skips zero or more space characters.
+    Constructs a `Parser` that skips zero or more whitespace characters.
 */
-public let whitespace: Parser<Character, ()> = many(space ?? newLine ?? tab).discard().withError("whitespace")
+public let spaces: Parser<Character, ()> = many(space).discard().withError("spaces")
+
+/**
+    Constructs a `Parser` that one whitespace character.
+*/
+public let space: Parser<Character, Character> = (token(" ") ?? newLine ?? tab).withError("space")
 
 /**
     Constructs a `Parser` that succeeds upon consuming an uppercase letter.
